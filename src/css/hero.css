@@ -1,7 +1,15 @@
-:root {
-  --green: 9BB537;
-  --white-w: #ffffff;
-  --black: 050505;
+@media screen and (max-width: 767px) {
+  .event-list {
+    padding: 88px 0 0 0;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .event-list {
+    padding: 93px 0 0 0;
+    margin-bottom: 80px;
+  }
 }
 
 .event-list {
@@ -9,29 +17,33 @@
   @media screen and (min-width: 768px) {
     padding-top: 93px;
   }
-  @media screen and (min-width: 1280px) {
-    margin: 0 auto;
-    max-width: 1280px;
-    padding-top: 94px;
-    overflow: hidden;
-  }
-}
-.event-discription {
-  margin-bottom: 48px;
-  @media screen and (min-width: 768px) {
-    width: 446px;
-    margin-bottom: 64px;
-    margin-right: 32px;
-  }
 }
 
-.hero-container {
-  overflow: hidden;
-
-  @media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
+  .hero-container {
     display: flex;
-    overflow: visible;
-    align-items: center;
+    gap: 32px;
+    min-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0 0 100px;
+  }
+}
+
+.event-discription {
+  padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .event-discription {
+    padding-right: 290px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .event-discription {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 0;
+    width: 446px;
+    height: 100%;
   }
 }
 
@@ -39,42 +51,42 @@
   width: 335px;
   font-size: 26px;
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 120%;
-  color: var(--black);
+  text-transform: uppercase;
+}
 
-  @media screen and (min-width: 768px) {
-    width: 446px;
+@media screen and (min-width: 768px) {
+  .event-title {
+    margin-bottom: 16px;
     font-size: 36px;
   }
 }
 
-.tasty-treats {
-  font-style: oblique;
-  color: var(--green);
+.tasry-treads {
   font-weight: 400;
 }
 
 .event-text {
-  margin: 14px 0 28px;
+  margin-bottom: 28px;
   font-size: 14px;
-  line-height: 18px;
-  color: var(--black);
+  line-height: 1.28;
+}
 
-  @media screen and (min-width: 768px) {
-    margin: 16px 0 32px;
+@media screen and (min-width: 768px) {
+  .event-text {
+    margin-bottom: 32px;
     font-size: 16px;
-    line-height: 24px;
-    width: 408px;
+    line-height: 1.5;
   }
 }
 
-.event-order {
+.order-btn {
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 15px;
   border: 1px solid var(--green);
   font-size: 14px;
+  font-family: Inter;
   font-weight: 500;
   background-color: var(--white-w);
   color: var(--black);
