@@ -1,1 +1,1 @@
-import './js/recipes-filter'
+import './js/recipes-list'
