@@ -12,22 +12,10 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .event-list {
-    padding: 100px 0 0 0;
-    margin-bottom: 100px;
-  }
-}
-.hero-container {
-  margin: 0 auto;
-
-  padding-left: 20px;
-  padding-right: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .hero-container {
-    padding-left: 32px;
+.event-list {
+  padding-top: 91px;
+  @media screen and (min-width: 768px) {
+    padding-top: 93px;
   }
 }
 
@@ -58,8 +46,9 @@
     height: 100%;
   }
 }
-.event-titlle {
-  margin-bottom: 14px;
+
+.event-title {
+  width: 335px;
   font-size: 26px;
   font-weight: 600;
   line-height: 120%;
@@ -67,16 +56,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .event-titlle {
-    margin-bottom: 16px;
-    font-size: 36px;
-  }
+  width: 446px;
+  font-size: 36px;
 }
 
 .tasry-treads {
   font-weight: 400;
-  color: rgba(155, 181, 55, 1);
-  font-style: italic;
 }
 
 .event-text {
@@ -95,28 +80,22 @@
 
 .order-btn {
   cursor: pointer;
-  margin-bottom: 48px;
-  background-color: rgba(255, 255, 255, 1);
-  color: rgba(5, 5, 5, 1);
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 1px solid var(--green);
   font-size: 14px;
   font-family: Inter;
   font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(155, 181, 55, 1);
-}
-.order-btn:hover {
-  background-color: rgba(155, 181, 55, 1);
-  color: rgba(255, 255, 255, 1);
-}
+  background-color: var(--white-w);
+  color: var(--black);
 
-@media screen and (min-width: 768px) {
-  .order-btn {
-    padding: 14px 28px;
+  &:hover,
+  &:focus {
+    background-color: var(--green);
+    color: var(--white-w);
   }
-}
-@media screen and (min-width: 1280px) {
-  .order-btn {
-    margin-bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 28px;
   }
 }
