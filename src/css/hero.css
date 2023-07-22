@@ -1,91 +1,122 @@
-:root {
-  --green: 9BB537;
-  --white-w: #ffffff;
-  --black: 050505;
-}
-
-.event-list {
-  padding-top: 91px;
-  @media screen and (min-width: 768px) {
-    padding-top: 93px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin: 0 auto;
-    max-width: 1280px;
-    padding-top: 94px;
-    overflow: hidden;
-  }
-}
-.event-discription {
-  margin-bottom: 48px;
-  @media screen and (min-width: 768px) {
-    width: 446px;
-    margin-bottom: 64px;
-    margin-right: 32px;
+@media screen and (max-width: 767px) {
+  .event-list {
+    padding: 88px 0 0 0;
+    margin-bottom: 80px;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .event-list {
+    padding: 93px 0 0 0;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .event-list {
+    padding: 100px 0 0 0;
+    margin-bottom: 100px;
+  }
+}
 .hero-container {
-  overflow: hidden;
+  margin: 0 auto;
 
-  @media screen and (min-width: 1280px) {
-    display: flex;
-    overflow: visible;
-    align-items: center;
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container {
+    padding-left: 32px;
   }
 }
 
-.event-title {
-  width: 335px;
+@media screen and (min-width: 1280px) {
+  .hero-container {
+    display: flex;
+    gap: 32px;
+    min-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0 0 100px;
+  }
+}
+
+.event-discription {
+  padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .event-discription {
+    padding-right: 290px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .event-discription {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 0;
+    width: 446px;
+    height: 100%;
+  }
+}
+.event-titlle {
+  margin-bottom: 14px;
   font-size: 26px;
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 120%;
-  color: var(--black);
+  text-transform: uppercase;
+}
 
-  @media screen and (min-width: 768px) {
-    width: 446px;
+@media screen and (min-width: 768px) {
+  .event-titlle {
+    margin-bottom: 16px;
     font-size: 36px;
   }
 }
 
-.tasty-treats {
-  font-style: oblique;
-  color: var(--green);
+.tasry-treads {
   font-weight: 400;
+  color: rgba(155, 181, 55, 1);
+  font-style: italic;
 }
 
 .event-text {
-  margin: 14px 0 28px;
+  margin-bottom: 28px;
   font-size: 14px;
-  line-height: 18px;
-  color: var(--black);
+  line-height: 1.28;
+}
 
-  @media screen and (min-width: 768px) {
-    margin: 16px 0 32px;
+@media screen and (min-width: 768px) {
+  .event-text {
+    margin-bottom: 32px;
     font-size: 16px;
-    line-height: 24px;
-    width: 408px;
+    line-height: 1.5;
   }
 }
 
-.event-order {
+.order-btn {
   cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 15px;
-  border: 1px solid var(--green);
+  margin-bottom: 48px;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(5, 5, 5, 1);
   font-size: 14px;
+  font-family: Inter;
   font-weight: 500;
-  background-color: var(--white-w);
-  color: var(--black);
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(155, 181, 55, 1);
+}
+.order-btn:hover {
+  background-color: rgba(155, 181, 55, 1);
+  color: rgba(255, 255, 255, 1);
+}
 
-  &:hover,
-  &:focus {
-    background-color: var(--green);
-    color: var(--white-w);
-  }
-
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .order-btn {
     padding: 14px 28px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .order-btn {
+    margin-bottom: 0;
   }
 }
