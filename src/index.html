@@ -20,25 +20,14 @@
     />
     <link rel="stylesheet" href="./main.css" />
   </head>
+  <body>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./public/chef-hat.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tasty Treats</title>
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
+    <include src="./partials/sections/header.html"></include>
+    <include src="./partials/sections/hero.html"></include>
+    <include src="./partials/sections/recipes-list.html"></include>
 
-  <link rel="stylesheet" href="./main.css" />
-
-</head>
-
-<body>
-
-  <!-- ❗️❗️❗️ Add partials like so for every page -->
-  <include src="./partials/header.html"></include>
-  <include src="./partials/hero.html"></include>
-  <include src="./partials/recipes-list.html"></include>
-
-  <script type="module" src="./index.js"></script>
-</body>
+    <script type="module" src="./index.js"></script>
+  </body>
 
 </html>
