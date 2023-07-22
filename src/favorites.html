@@ -2,57 +2,35 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./public/chef-hat.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tasty Treats</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="./public/chef-hat.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
 
-  <link rel="stylesheet" href="./css/common.css" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/favorites.css" />
 </head>
 
-<body id="favorites-page">
-  <header class="header">
-    <load src="./partials/header.html" />
-  </header>  
+<body>
+    <load src="partials/header.html" />
 
-  <main>
-    <section class="favorites-section">
-      <div class="container">
-        <div class="favorites">
-          <h1 class="visually-hidden">Favorites</h1>
-          <picture class="favorites-hero-picture">
-            <source srcset="./images/hero_favorites/favorites-hero-mob-1x.webp 1x, ./images/hero_favorites/favorites-hero-mob-2x.webp 2x" media="(max-width: 767px)" />
-            <source srcset="./images/hero_favorites/favorites-hero-tab-1x.webp 1x, ./images/hero_favorites/favorites-hero-tab-2x.webp 2x" media="(max-width: 1199px)" />
-            <source srcset="./images/hero_favorites/favorites-hero-desk-1x.webp 1x, ./images/hero_favorites/favorites-hero-desk-2x.webp 2x" media="(min-width: 1280px)" />
-            <img src="./images/hero_favorites/favorites-hero-desk-1x.webp" alt="a dish with meat and vegetables food" width="1280px" />
-          </picture>
+    <section class="fav-hero-section">
+        <div class="container fav-hero-container">
 
-          <div id="category-filter-div"></div>
-          <div class="added-card-set"></div>
+            <picture class="fav-hero-pic">
+                <source media="(min-width: 1280px)"
+                    srcset="./images/favorites-page/card-desk.webp 1x, ./images/favorites-page/card-desk@2x.webp 2x">
 
+                <source media="(min-width: 768px)"
+                    srcset="./images/favorites-page/card-table.webp 1x, ./images/favorites-page/card-table@2x.webp 2x">
+
+                <source media="(max-width: 767px)"
+                    srcset="./images/favorites-page/card-mob.webp 1x, ./images/favorites-page/card-mob@2x.webp 2x">
+
+                <img loading="lazy" src="./images/favorites-page/card-desk.webp" alt="Dish" width="1080">
+            </picture>
         </div>
-
-        <div class="block-for-empty">
-          <img class="head-icon" src="./images/icons/favorites_elements.svg" alt="head-icon">
-          <p class="message-for-empty">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.
-          </p>
-        </div>
-      </div>
     </section>
-  </main>
-
-  <!-- ❗️❗️❗️ Add partials like so for every page -->
-
-  <load src="./partials/create-order.html"></load>
-
-  <include src="./partials/header.html"></include>
-  <include src="./partials/recipes-list.html"></include>
-
-  <script type="module" src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
-
 </html>
