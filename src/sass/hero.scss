@@ -1,0 +1,95 @@
+
+:root {
+    --green: 9BB537;
+    --white-w: #ffffff;
+    --black: 050505;
+   
+}
+
+
+.event-list{
+    padding-top: 91px;
+    @media screen and (min-width: 768px) {
+        padding-top: 93px ;
+    }
+@media screen and (min-width: 1280px) {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding-top: 94px;
+    overflow: hidden;
+}
+
+}
+.event-discription {
+    margin-bottom: 48px;
+    @media screen and (min-width: 768px) {
+    width: 446px;
+    margin-bottom: 64px;
+    margin-right: 32px;
+    }
+}
+
+.hero-container {
+    overflow: hidden;
+
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        overflow: visible;
+        align-items: center;
+    }
+}
+
+.event-title {
+    width: 335px;
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 120%;
+    color: var(--black);
+
+    @media screen and (min-width: 768px) {
+        width: 446px;
+        font-size: 36px;
+    }
+}
+
+.tasty-treats {
+    font-style: oblique;
+    color: var(--green);
+    font-weight: 400;
+}
+
+.event-text {
+    margin: 14px 0 28px;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--black);
+
+    @media screen and (min-width: 768px) {
+        margin: 16px 0 32px;
+        font-size: 16px;
+        line-height: 24px;
+        width: 408px;
+    }
+}
+
+.event-order {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid var(--green);
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--white-w);
+       color: var(--black);
+
+    &:hover,
+    &:focus {
+        background-color: var(--green);
+        color: var(--white-w);
+    }
+
+    @media screen and (min-width: 768px) {
+        padding: 14px 28px;
+    }
+}
