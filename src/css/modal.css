@@ -1,0 +1,36 @@
+.modal-window {
+  max-width: 335px;
+  max-height: 582px;
+}
+
+.modal-title {
+  text-transform: uppercase;
+}
+
+.input {
+  width: 295px;
+  height: 46px;
+  border: 1px;
+  border-radius: 15px;
+}
+
+.textarea {
+  width: 295px;
+  height: 100px;
+  border: 1px;
+  border-radius: 15px;
+  resize: none;
+}
+
+.submit-btn {
+  width: 295px;
+  height: 46px;
+  border-radius: 15px;
+  background-color: var(--btn-color);
+  color: var(--secondary-color);
+}
+
+.submit-btn:is(:hover, :focus) {
+  color: var(--main-color);
+  cursor: pointer;
+}
