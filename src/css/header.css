@@ -3,8 +3,7 @@
     --green: #9BB537;
     --black: #050505;
     --gray-radiobtn-w: #CECDCD;
-    --background-w: #F8F8F8;
-
+    
     --trns-general: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --animate: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -29,7 +28,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--green); /* Цвет полоски */
+  background-color: var(--btn-color); /* Цвет полоски */
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
 }
@@ -39,7 +38,7 @@
 }
 
 .header-nav-links{
-    color: var(--black);
+    color: var(--main-color);
     font-size: 12px;
     font-weight: 500;
     font-size: 12px;
@@ -48,7 +47,7 @@
 
 .header-nav-links:hover,
 .header-nav-links:focus{
-    color: var(--green);
+    color: var(--btn-color);
     transition: var(--trns-general);
 }
 
@@ -57,7 +56,7 @@
 }
 
 .logo-first {
-    color: var(--green);
+    color: var(--btn-color);
     font-size: 16px;
     font-weight: 600;
     line-height: calc(18/16);
@@ -65,7 +64,7 @@
 }
 
 .logo-second {
-    color: var(--black);
+    color: var(--main-color);
     font-size: 16px;
     font-weight: 600;
     line-height: calc(18/16);
@@ -100,7 +99,7 @@
 }
 
 .mobile-menu-icon{
-    stroke: var(--black);
+    stroke: var(--main-color);
 }
 
 .header-switch {
@@ -149,7 +148,7 @@
 /* Mobile Menu Styles */
 
 .mobile-menu {
-    background-color: var(--green);
+    background-color: var(---btn-color);
     height: 100%;
     width: 100%;
     position: fixed;
@@ -212,7 +211,7 @@
 }
 
 .active-header-list-item{
-    color: var(--black);
+    color: var(--main-color);
 }
 
 .switch {
@@ -246,13 +245,13 @@
     width: 15px;
     left: 4px;
     bottom: 3px;
-    background-color: var(--background-w);
+    background-color: var(--secondary-color);
     transition: 0.4s;
     border-radius: 50%;
 }
 
 input:checked+.slider {
-    background: var(--green);
+    background: var(--btn-color);
 }
 
 input:checked+.slider:before {
@@ -267,16 +266,16 @@ input:checked+.slider:before {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--green);
+    background-color: var(--btn-color);
 }
 
 .nav-link-active{
-    color: var(--green);
+    color: var(--btn-color);
 }
 
 .shopping-icon-use{
     fill: var(--white-w);
-    stroke: var(--black);
+    stroke: var(--main-color);
 }
 
 /*========= Media tablet =========*/
