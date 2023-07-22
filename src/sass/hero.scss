@@ -1,3 +1,12 @@
+
+:root {
+    --green: 9BB537;
+    --white-w: #ffffff;
+    --black: 050505;
+   
+}
+
+
 .event-list{
     padding-top: 91px;
     @media screen and (min-width: 768px) {
@@ -72,8 +81,7 @@
     font-size: 14px;
     font-weight: 500;
     background-color: var(--white-w);
-    transition: all var(--trns-general);
-    color: var(--black);
+       color: var(--black);
 
     &:hover,
     &:focus {
