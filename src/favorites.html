@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="./public/chef-hat.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/favorites.css" />
+</head>
+
+<body>
+    <load src="partials/header.html" />
+
+    <section class="fav-hero-section">
+        <div class="container fav-hero-container">
+
+            <picture class="fav-hero-pic">
+                <source media="(min-width: 1280px)"
+                    srcset="./images/favorites-page/card-desk.webp 1x, ./images/favorites-page/card-desk@2x.webp 2x">
+
+                <source media="(min-width: 768px)"
+                    srcset="./images/favorites-page/card-table.webp 1x, ./images/favorites-page/card-table@2x.webp 2x">
+
+                <source media="(max-width: 767px)"
+                    srcset="./images/favorites-page/card-mob.webp 1x, ./images/favorites-page/card-mob@2x.webp 2x">
+
+                <img loading="lazy" src="./images/favorites-page/card-desk.webp" alt="Dish" width="1080">
+            </picture>
+        </div>
+    </section>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
