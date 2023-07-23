@@ -7,12 +7,15 @@ export class UnsplashAPI {
 page = 1;
 query = null;
 
-async fetchRecipes() {
-    return await axios.get(`${this.#BASE_URL}/recipes`, {
-      params: {
-        "page": 1,
-        "limit": 6
-      }
-    });
-  }
+// async fetchRecipes() {
+//     return await axios.get(`${this.#BASE_URL}/recipes`, {
+//       params: {
+//         "page": 1,
+//         "limit": 6
+//       }
+//     });
+//   }
+async fetchRecipes(params) {
+  return await axios.get(`${this.#BASE_URL}`, params);
+}
 }
