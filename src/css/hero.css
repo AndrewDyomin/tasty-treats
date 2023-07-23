@@ -14,9 +14,14 @@
 
 .event-list {
   padding-top: 91px;
-  @media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
+    
+  .event-list {
     padding-top: 93px;
   }
+  
 }
 
 @media screen and (min-width: 1280px) {
