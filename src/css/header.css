@@ -3,7 +3,7 @@
     /* --green: #9BB537; */
     /* --black: #050505; */
     /* --background-w: #F8F8F8; */
-    /* --gray-radiobtn-w: #CECDCD; */
+    --gray-radiobtn-w: #CECDCD;
     
     --trns-general: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --animate: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -131,7 +131,7 @@
     width: 17px;
     left: 2px;
     bottom: 2px;
-    background-color: var(--background-w);
+    background-color: var(--secondary-color);
     transition: 0.4s; 
     border-radius: 50%;
   }
