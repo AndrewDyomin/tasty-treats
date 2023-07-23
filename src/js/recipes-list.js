@@ -8,7 +8,7 @@ const recipesListEl = document.querySelector('.resipes-list');
 async function createRecipesCards () {
     try {
         const { data } = await unsplashApi.fetchRecipes();
-      console.log(data);
+      // console.log(data);
         for (const recipe of data.results) {
             const markup = 
             `<li class="recipes-list-item">

@@ -5,7 +5,7 @@ const searchIconEl = document.querySelector('.search-icon');
 function searchInputChangeHandler() {
     if (!searchInputEl.value) {
         searchIconEl.classList.add('search-icon-active');
-        console.log('input changed')
+        // console.log('input changed')
     }
 };
 
