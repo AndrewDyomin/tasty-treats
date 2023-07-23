@@ -26,7 +26,6 @@ async function createSlider() {
       },
     });
 
-   
     swiper.scrollbar?.scrollTo(0, 0, 0);
 
     refs.loader.style.display = 'none';
