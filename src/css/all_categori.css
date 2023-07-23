@@ -1,0 +1,20 @@
+#categories{
+    width: 235px;
+ height: 416px;
+ overflow: scroll;
+}
+#categories  button{
+   height: 20px;
+   margin-bottom: 24px;
+   font-size: 16px;
+   background: none;
+   border: none;
+   color: rgba(5, 5, 5, 0.3);
+
+}
+#categories  button:hover{
+    color: var(--btn-color);
+}
+#categories .active{
+    color:var(--btn-color);
+}
