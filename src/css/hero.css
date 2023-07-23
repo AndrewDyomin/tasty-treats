@@ -240,7 +240,7 @@
   display: block;
   width: 222px;
   border-radius: 15px;
-  background: var(--primaty-black-color);
+  background: var(--main-color);
   background-position: center;
   background-size: 450px;
 }
@@ -251,4 +251,17 @@
     width: 351px;
     object-fit: fill;
   }
+}
+
+#hero-swiper-pagination {
+  bottom: 0%;
+}
+
+.hero-slider .swiper-pagination-bullet {
+  opacity: 1;
+  background-color: var(--main-color);
+}
+
+.hero-slider .swiper-pagination-bullet-active {
+  background-color: var(--btn-color);
 }
