@@ -97,12 +97,14 @@
   color: var(--black);
 }
   /*здесь была ошибка. Пересмотрите, пожалуйста, код*/
-  &:hover,
+ 
+ 
+ /* &:hover,
   &:focus {
     background-color: var(--green);
     color: var(--white-w);
   }
 
-  /* @media screen and (min-width: 768px) {
+   @media screen and (min-width: 768px) {
     padding: 14px 28px;
   } */
