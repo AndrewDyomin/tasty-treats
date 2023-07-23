@@ -45,3 +45,45 @@
 .recipe-card-button:is(:hover, :focus) {
   color: var(--main-color);
 }
+
+.pagination-pages {
+  display: flex;
+}
+
+.nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-btn > button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: inherit;
+}
+
+.to-start,
+.preview-page {
+  background-color: var(--main-color);
+}
+
+.next-page,
+.to-end {
+  background-color: var(--btn-color);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: black;
+}
+
+.page-numbers {
+  margin-left: 14px;
+  margin-right: 14px;
+}
