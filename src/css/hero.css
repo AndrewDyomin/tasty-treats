@@ -98,18 +98,12 @@
 }
 /*здесь была ошибка. Пересмотрите, пожалуйста, код*/
 
-.order-btn:hover {
-  background-color: var(--btn-color);
-  color: var(--secondary-color);
-}
+/* &:hover,
+  &:focus {
+    background-color: var(--green);
+    color: var(--white-w);
+  }
 
-@media screen and (min-width: 768px) {
-  .order-btn {
+   @media screen and (min-width: 768px) {
     padding: 14px 28px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .order-btn {
-    margin-bottom: 0;
-  }
-}
+  } */
