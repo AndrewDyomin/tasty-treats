@@ -96,14 +96,19 @@
   background-color: var(--secondary-color);
   color: var(--main-color);
 }
-/*здесь была ошибка. Пересмотрите, пожалуйста, код*/
 
-/* &:hover,
-  &:focus {
-    background-color: var(--green);
-    color: var(--white-w);
-  }
+.order-btn {
+  background-color: var(--btn-color);
+  color: var(--secondary-color);
+}
 
-   @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .order-btn {
     padding: 14px 28px;
-  } */
+  }
+}
+@media screen and (min-width: 1280px) {
+  .order-btn {
+    margin-bottom: 0;
+  }
+}
