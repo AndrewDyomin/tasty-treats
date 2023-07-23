@@ -1,33 +1,63 @@
-<section class="section">
-    <form class="filter-form" id="filter-form">
-        <ul class="filter-form-list">
-            <li class="filter-form-item">
-                <label class="filter-form-label">
-                    Search
-                    <div class="search-area">
-                        <svg class="search-icon" >
-                            <use
-                              href="./images/sprite.svg#search-icon"
-                            ></use>
-                        </svg>
-                        <input
-                        class="search-input"
-                        type="text"
-                        name="searchQuery"
-                        autocomplete="off"
-                        placeholder="Enter Text"
-                        />
-                    </div>
-                </label>
-            </li>
-            <li class="filter-form-item">
+<section class="section recipe-section">
+  <form class="filter-form" id="filter-form">
+    <ul class="filter-form-list">
+      <li class="filter-form-item">
+        <label class="filter-form-label">
+          Search
+          <div class="search-area">
+            <svg class="search-icon">
+              <use href="./images/sprite.svg#search-icon"></use>
+            </svg>
+            <input
+              class="search-input"
+              type="text"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Enter Text"
+            />
+          </div>
+        </label>
+      </li>
+      <li class="filter-form-item"></li>
+    </ul>
+  </form>
+  <div class="recipes-container">
+    <ul class="resipes-list"></ul>
+  </div>
 
-            </li>
-        </ul>
-    </form>
-    <div class="recipes-container">
-        <ul class="resipes-list">
-            
-        </ul>
+  <div class="pagination-pages">
+    <div class="nav-btn">
+      <button class="to-start" type="button">
+        <svg class="nav-icon start-1">
+          <use href="/src/images/sprite.svg#icon-left"></use>
+        </svg>
+        <svg class="nav-icon start-2">
+          <use href="/src/images/sprite.svg#icon-left"></use>
+        </svg>
+      </button>
+      <button class="preview-page" type="button">
+        <svg class="nav-icon">
+          <use href="/src/images/sprite.svg#icon-left"></use>
+        </svg>
+      </button>
     </div>
+
+    <div class="page-numbers"></div>
+
+    <div class="nav-btn">
+      <button class="next-page" type="button">
+        <svg class="nav-icon">
+          <use href="/src/images/sprite.svg#icon-right"></use>
+        </svg>
+      </button>
+      <button class="to-end" type="button">
+        <svg class="nav-icon end-1">
+          <use href="/src/images/sprite.svg#icon-right"></use>
+        </svg>
+        <svg class="nav-icon end-2">
+          <use href="/src/images/sprite.svg#icon-right"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
 </section>
