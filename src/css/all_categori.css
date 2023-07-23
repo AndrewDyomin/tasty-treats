@@ -15,3 +15,6 @@
 #categories  button:hover{
     color: var(--btn-color);
 }
+#categories .active{
+    color:var(--btn-color);
+}

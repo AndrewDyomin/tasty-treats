@@ -12,6 +12,7 @@ function createCategoryList(categories) {
     
     button.textContent = category.name;
     button.addEventListener('click', () => {
+        button.classList.add('active')
       console.log('Category clicked:', category);
       // Тут потрібо добавити вже дії на сортування елементів
     });
