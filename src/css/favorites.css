@@ -9,7 +9,7 @@ body {
 }
 
 .fav-hero-section {
-  margin-top: 24px;
+  /* margin-top: 24px; */
 }
 
 .fav-hero-pic img {
@@ -57,7 +57,7 @@ body {
   }
 
   .fav-hero-section {
-    margin-top: 22px;
+    /* margin-top: 22px; */
   }
 
   .fav-hero-pic img {
@@ -90,7 +90,7 @@ body {
   }
 
   .fav-hero-section {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
   .fav-content-section {
