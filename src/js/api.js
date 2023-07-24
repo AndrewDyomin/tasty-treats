@@ -8,3 +8,4 @@ async fetchRecipes(requestParams) {
   return await axios.get(`${this.#BASE_URL}${requestParams}`);
   }
 }
+
