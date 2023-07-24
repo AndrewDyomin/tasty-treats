@@ -1,3 +1,9 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
 .popular-recipes-block {
   width: 332px;
 }
