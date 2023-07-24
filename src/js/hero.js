@@ -1,6 +1,9 @@
 import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import '../../node_modules/swiper/swiper.css';
+import '../../node_modules/swiper/modules/pagination-element.min.css';
 import axios from 'axios';
+import { showLoader, hideLoader } from './loader'
+
 
 const apiUrl = 'https://tasty-treats-backend.p.goit.global/api/events';
 const refs = {
@@ -17,7 +20,7 @@ async function createSlider() {
     addIventsInSlick(markup);
 
     const swiper = new Swiper('.swiper', {
-      pagination: {
+       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       },
@@ -48,6 +51,7 @@ async function generateIventsMarkup() {
   refs.loader.classList.remove('visible');
 
   try {
+    showLoader();
     const ivents = await fetchEventsData();
     refs.loader.classList.add('visible');
 
@@ -55,6 +59,8 @@ async function generateIventsMarkup() {
   } catch (error) {
     console.error('Error generating events markup:', error);
     return '';
+  } finally {
+    hideLoader()
   }
 }
 
