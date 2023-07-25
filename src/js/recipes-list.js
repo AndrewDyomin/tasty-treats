@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 
 const unsplashApi = new UnsplashAPI();
 
-let itemsPerPage = 6;
+// let itemsPerPage = 6;
 let currentPage = 1;
 const recipesListEl = document.querySelector('.resipes-list');
 
@@ -32,14 +32,14 @@ async function createRecipesCards (data) {
     }
 }
 
-async function reloadRecipesList () {
+async function reloadRecipesList (itemsPerPage) {
   let requestParams = `/recipes?page=${currentPage}&limit=${itemsPerPage}`;
   const { data } = await unsplashApi.fetchRecipes(requestParams);
   console.log(data)
   createRecipesCards(data);
 }
 
-reloadRecipesList();
+// reloadRecipesList();
 
 const refs = {
   pageNext: document.querySelector('.next-page'),
@@ -47,7 +47,7 @@ const refs = {
 };
 refs.pageNext.addEventListener('click', nextPage);
 function nextPage() {
-  currentPage++;
+  currentPage+=1;
   reloadRecipesList();
 }
 
