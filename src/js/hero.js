@@ -27,6 +27,7 @@ async function createSlider() {
         delay: 6000,
       },
     });
+    
 
     swiper.scrollbar?.scrollTo(0, 0, 0);
 
