@@ -18,3 +18,20 @@
 #categories .active{
     color:var(--btn-color);
 }
+.categorBt{
+    padding:14px 28px;
+    margin-bottom: 42px;
+    border-radius: 15px;
+    background: none;
+    border-color: rgba(5, 5, 5, 0.2);
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 500;
+
+    
+}
+.categorBt:hover{
+background-color: var(--btn-color);
+color: var(--secondary-color);
+}

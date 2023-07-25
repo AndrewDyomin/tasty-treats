@@ -104,7 +104,19 @@
 }
 
 .header-switch {
+<<<<<<< Updated upstream
     display: none;
+=======
+    display: none;}
+    @media screen and (min-width:768px) {.header-switch {
+            position: relative;
+            display: flex;
+            width: 47px;
+            height: 20px;
+            border-radius: 10px;
+            box-shadow: 7px 5px 15px 0px #A09EA066;
+        }
+>>>>>>> Stashed changes
   }
   
   .header-switch input {

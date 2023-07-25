@@ -1,35 +1,56 @@
 
-const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
-const categoriesContainer = document.getElementById('categories');
 
-function createCategoryList(categories) {
-  const categoryList = document.createElement('ul');
+
+ 
+  const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
+  const categoriesContainer = document.getElementById('categories');
+  const overallButton = document.querySelector('.categorBt');
   
-  
-  categories.forEach(category => {
-    const listItem = document.createElement('li');
-    const button = document.createElement('button');
+  function createCategoryList(categories) {
+    const categoryList = document.createElement('ul');
+    // categoryList.style.overflow = 'auto';
     
-    button.textContent = category.name;
-    button.addEventListener('click', () => {
-        button.classList.add('active')
-      console.log('Category clicked:', category);
-      // Тут потрібо добавити вже дії на сортування елементів
+    categories.forEach(category => {
+      const listItem = document.createElement('li');
+      const button = document.createElement('button');
+      
+      button.textContent = category.name;
+      button.classList.add('category-button');
+      
+      button.addEventListener('click', () => {
+        button.classList.toggle('active');
+        
+        if (button.classList.contains('active')) {
+          console.log('Category activated:', category);
+          // Тут ви можете викликати функцію для подальшої обробки активації категорії
+        } else {
+          console.log('Category deactivated:', category);
+          // Тут ви можете викликати функцію для подальшої обробки деактивації категорії
+        }
+      });
+      
+      listItem.appendChild(button);
+      categoryList.appendChild(listItem);
     });
     
-    listItem.appendChild(button);
-    categoryList.appendChild(listItem);
-  });
+    return categoryList;
+  }
+  // функція зімання ільтрів і категорій натисканням на загальну кнопку
+  function clearActiveStates() {
+    const categoryButtons = categoriesContainer.querySelectorAll('.category-button');
+    categoryButtons.forEach(button => {
+      button.classList.remove('active');
+    });
+  }
   
-  return categoryList;
-}
-
-fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const categoryList = createCategoryList(data);
-    categoriesContainer.appendChild(categoryList);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+  overallButton.addEventListener('click', clearActiveStates);
+  
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const categoryList = createCategoryList(data);
+      categoriesContainer.appendChild(categoryList);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
