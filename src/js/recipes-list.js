@@ -2,8 +2,6 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 
 const unsplashApi = new UnsplashAPI();
-let itemsPerPage = 6;
-let currentPage = 1;
 const recipesListEl = document.querySelector('.resipes-list');
 
 
@@ -30,14 +28,14 @@ function createRecipesCards (data) {
     }
 }
 
-async function reloadRecipesList (itemsPerPage) {
-  let requestParams = `/recipes?page=${currentPage}&limit=${itemsPerPage}`;
-  const { data } = await unsplashApi.fetchRecipes(requestParams);
+async function reloadRecipesList () {
+  unsplashApi.endpoint = '/recipes';
+  const { data } = await unsplashApi.fetchRecipes();
   console.log(data)
   createRecipesCards(data);
 }
 
-// reloadRecipesList();
+reloadRecipesList();
 
 const refs = {
   pageNext: document.querySelector('.next-page'),
@@ -45,7 +43,13 @@ const refs = {
 };
 refs.pageNext.addEventListener('click', nextPage);
 function nextPage() {
-  currentPage+=1;
+  unsplashApi.currentPage ++;
+  reloadRecipesList();
+}
+
+refs.pagePrev.addEventListener('click', prevPage);
+function prevPage() {
+  unsplashApi.currentPage --;
   reloadRecipesList();
 }
 
