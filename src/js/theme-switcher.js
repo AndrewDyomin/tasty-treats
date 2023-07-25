@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const bodyTheme = document.body;
     const desktopThemeSwitcher = document.querySelector('.header-switch input');
-    const mobThemeSwitcher = docu.querySelector('.switch input');
+    const mobThemeSwitcher = document.querySelector('.switch input');
     const desktopHeader = document.querySelector('.header');
 
 
@@ -50,5 +50,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('pageshow', function (event) {
         applyTheme();
+    });
+});
+
+//**Header page after switch**//
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const menuItems = document.querySelectorAll('.navigation a');
+    const mobMenuItems = document.querySelectorAll('.header-list-item')
+  
+
+    menuItems.forEach(item => {
+      item.classList.remove('current');
+      item.classList.remove('nav-link-active');
+    });
+
+    mobMenuItems.forEach(item => {
+      item.classList.remove('active-header-list-item');
+    });
+  
+
+    menuItems.forEach(item => {
+      if (item.getAttribute('href') === currentPath) {
+        item.classList.add('current');
+        item.classList.add('nav-link-active');
+      }
+    });
+
+    mobMenuItems.forEach(item => {
+      if (item.getAttribute('href') === currentPath) {
+        item.classList.add('active-header-list-item');
+      }
     });
 });
