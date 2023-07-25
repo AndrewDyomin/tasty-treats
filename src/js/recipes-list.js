@@ -30,14 +30,14 @@ function createRecipesCards (data) {
     }
 }
 
-async function reloadRecipesList () {
+async function reloadRecipesList (itemsPerPage) {
   let requestParams = `/recipes?page=${currentPage}&limit=${itemsPerPage}`;
   const { data } = await unsplashApi.fetchRecipes(requestParams);
   console.log(data)
   createRecipesCards(data);
 }
 
-reloadRecipesList();
+// reloadRecipesList();
 
 const refs = {
   pageNext: document.querySelector('.next-page'),
@@ -45,7 +45,7 @@ const refs = {
 };
 refs.pageNext.addEventListener('click', nextPage);
 function nextPage() {
-  currentPage++;
+  currentPage+=1;
   reloadRecipesList();
 }
 
