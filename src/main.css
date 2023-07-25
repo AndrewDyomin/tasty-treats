@@ -10,6 +10,7 @@
 @import url('./css/all_categori.css');
 @import url('./css/scrollToTop.css');
 @import url('./css/loader.css');
+@import url('./css/flex-markup.css');
 @import url('./css/modal-recipe.css');
 
 .container {
@@ -28,8 +29,8 @@
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
