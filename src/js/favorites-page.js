@@ -10,19 +10,22 @@ const heroPicture = document.querySelector('.fav-hero-pic');
 const categoryRecipeList = document.querySelector('.fav-category-recipe-list')
 const favoriteRecipesList = document.querySelector('.fav-resipes-list');
 const noFavoriteRecipesMessage = document.querySelector('.fav-no-recipes-content');
- 
+const categoryFilters = document.querySelector('.category-btn'); 
 
 const localStorageKey = "favorites"
 
 //----------------------------------------------------------------------------------------------
-displayResizeHandler();
+
 
 displayFavoriteResipes(localStorageKey); //favorites - це ім'я ключа на localStorage, куди додаватимуться позначені рецепти 
-
+console.log(localStorage.getItem(localStorageKey));
 function displayFavoriteResipes(key) {
     if (localStorage.getItem(key) === "") {
+        
         noFavoriteRecipesMessage.classList.remove('is-hidden');
+        
     }
+    
     noFavoriteRecipesMessage.classList.add('is-hidden')
     
     createFavoriteRecipesCards(JSON.parse(localStorage.getItem(key)));
@@ -45,16 +48,26 @@ function displayResizeHandler() {
 
 
 function createFavoriteRecipesCards(recipes) {
+    console.log(recipes);
+    if (recipes === null) {
+        displayResizeHandler();
+        categoryFilters.classList.add('is-hidden');
+        noFavoriteRecipesMessage.classList.remove('is-hidden');
+        return;
+    }
+
     const recipeCategories = recipes.flatMap(recipe => recipe.category)
         .filter((category, index, array) => array.indexOf(category) === index);
     console.log(recipeCategories);
     
+    
+
     for (const category of recipeCategories) {
         const categoryBtn = `<button type="button" class="category-btn">${category}</button>`;
         categoryRecipeList.insertAdjacentHTML('beforeend', categoryBtn);
     }
 
-    favoriteRecipesList.innerHTML = ''; 
+    favoriteRecipesList.innerHTML = '';
 
     for (const recipe of recipes) {
         const recipeCard = `<li class="fav-recipes-list-item">
@@ -95,7 +108,8 @@ function createFavoriteRecipesCards(recipes) {
         favoriteRecipesList.insertAdjacentHTML('beforeend', recipeCard);
     }
 }
+    
 
-      
+
 
 

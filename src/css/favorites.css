@@ -79,6 +79,8 @@ body {
 
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
   color: var(--secondary-color);
 }
 .fav-recipe-card-description {
@@ -93,6 +95,7 @@ body {
   text-overflow: ellipsis;
   font-weight: 400;
   font-size: 12px;
+  line-height: 1.33;
   color: var(--secondary-color);
 }
 
