@@ -1,10 +1,10 @@
-.filter-form-item {
-  margin-bottom: 14px;
+.filter-form-list {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .filter-form-label {
-  width: 100%;
-  box-sizing: border-box;
   color: rgba(5, 5, 5, 0.5);
   font-family: 'Inter';
   font-size: 12px;
@@ -16,7 +16,6 @@
 .search-area {
   display: flex;
   margin-top: 8px;
-  width: 100%;
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 18px;
@@ -77,6 +76,12 @@
   gap: 14px;
 }
 
+label {
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+}
+
 option {
   width: 100%;
   border-radius: 15px;
@@ -89,10 +94,22 @@ option {
   color: rgba(5, 5, 5, 0.3);
 }
 
+.btn-rst {
+  margin-top: 14px;
+  margin-bottom: 20px;
+  margin-left: 230px;
+  border: inherit;
+  background-color: inherit;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: calc(1.33);
+  color: rgba(5, 5, 5, 0.5);
+}
+
 @media screen and (min-width: 375px) {
-  .search-input {
-    width: 335px;
-  }
+  /* .search-input {
+    
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -111,7 +128,37 @@ option {
     flex-wrap: wrap;
     gap: 16px;
   }
+
+  .btn-rst {
+    margin-left: 391px;
+    margin-bottom: 14px;
+  }
 }
 
 @media screen and (min-width: 1140px) {
+  .filter-form-list {
+    align-items: center;
+    justify-content: start;
+    flex-wrap: nowrap;
+  }
+
+  .search-input {
+    width: 278px;
+  }
+
+  .select.time {
+    width: 125px;
+  }
+
+  .select.area {
+    width: 141px;
+  }
+
+  .ingredients {
+    width: 188px;
+  }
+
+  .btn-rst {
+    margin-left: 676px;
+  }
 }
