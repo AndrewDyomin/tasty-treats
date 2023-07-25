@@ -1,63 +1,109 @@
 <section class="section recipe-section">
-  <form class="filter-form" id="filter-form">
-    <ul class="filter-form-list">
-      <li class="filter-form-item">
-        <label class="filter-form-label">
-          Search
-          <div class="search-area">
-            <svg class="search-icon">
-              <use href="./images/sprite.svg#search-icon"></use>
-            </svg>
-            <input
-              class="search-input"
-              type="text"
-              name="searchQuery"
-              autocomplete="off"
-              placeholder="Enter Text"
-            />
-          </div>
-        </label>
-      </li>
-      <li class="filter-form-item"></li>
-    </ul>
-  </form>
-  <div class="recipes-container">
-    <ul class="resipes-list"></ul>
-  </div>
+  <div class="container">
+    <form class="filter-form" id="filter-form">
+      <ul class="filter-form-list">
+        <li class="filter-form-item">
+          <label class="filter-form-label">
+            Search
+            <div class="search-area">
+              <svg class="search-icon">
+                <use href="./images/sprite.svg#search-icon"></use>
+              </svg>
+              <input
+                class="search-input"
+                type="text"
+                name="searchQuery"
+                autocomplete="off"
+                placeholder="Enter Text"
+              />
+            </div>
+          </label>
+        </li>
+        <div class="label-flex">
+          <li class="filter-form-item">
+            <label for="time" class="filter-form-label">
+              Time
+              <select class="select time" name="time" id="time">
+                <option value="10">10 min</option>
+                <option value="20">20 min</option>
+                <option value="30">30 min</option>
+                <option value="40">40 min</option>
+              </select>
+            </label>
+          </li>
+          <li class="filter-form-item">
+            <label for="area" class="filter-form-label">
+              Area
+              <select class="select area" name="area" id="area">
+                <option value="french">French</option>
+                <option value="spanish">Spanish</option>
+                <option value="italian">Italian</option>
+                <option value="english">English</option>
+                <option value="norwegian">Norwegian</option>
+                <option value="ukranian">Ukranian</option>
+              </select>
+            </label>
+          </li>
+        </div>
 
-  <div class="pagination-pages">
-    <div class="nav-btn">
-      <button class="to-start" type="button">
-        <svg class="nav-icon start-1">
-          <use href="/src/images/sprite.svg#icon-left"></use>
-        </svg>
-        <svg class="nav-icon start-2">
-          <use href="/src/images/sprite.svg#icon-left"></use>
-        </svg>
-      </button>
-      <button class="preview-page" type="button">
-        <svg class="nav-icon">
-          <use href="/src/images/sprite.svg#icon-left"></use>
-        </svg>
-      </button>
+        <li class="filter-form-item">
+          <label for="ingredients" class="filter-form-label">
+            Ingredients
+            <select
+              class="select ingredients"
+              name="ingredients"
+              id="ingredients"
+            >
+              <option value="cabbage">Cabbage</option>
+              <option value="cucumber">Cucumber</option>
+              <option value="tomato">Tomato</option>
+              <option value="corn">Corn</option>
+              <option value="radish">Radish</option>
+              <option value="parsley">Parsley</option>
+            </select>
+          </label>
+        </li>
+      </ul>
+    </form>
+    <div class="recipes-container">
+      <ul class="resipes-list"></ul>
     </div>
 
-    <div class="page-numbers"></div>
+    <div id="tui-pagination-container" class="tui-pagination"></div>
+    <div class="pagination-pages">
+      <div class="nav-btn">
+        <button class="to-start" type="button">
+          <svg class="nav-icon start-1">
+            <use href="/src/images/sprite.svg#icon-left"></use>
+          </svg>
+          <svg class="nav-icon start-2">
+            <use href="/src/images/sprite.svg#icon-left"></use>
+          </svg>
+        </button>
+        <button class="preview-page" type="button">
+          <svg class="nav-icon">
+            <use href="/src/images/sprite.svg#icon-left"></use>
+          </svg>
+        </button>
+      </div>
 
-    <div class="nav-btn">
-      <button class="next-page" type="button">
-        <svg class="nav-icon">
-          <use href="/src/images/sprite.svg#icon-right"></use>
-        </svg>
-      </button>
-      <button class="to-end" type="button">
-        <svg class="nav-icon end-1">
-          <use href="/src/images/sprite.svg#icon-right"></use>
-        </svg>
-        <svg class="nav-icon end-2">
-          <use href="/src/images/sprite.svg#icon-right"></use>
-        </svg>
-      </button>
+      <div class="page-numbers"></div>
+
+      <div class="nav-btn">
+        <button class="next-page" type="button">
+          <svg class="nav-icon">
+            <use href="/src/images/sprite.svg#icon-right"></use>
+          </svg>
+        </button>
+        <button class="to-end" type="button">
+          <svg class="nav-icon end-1">
+            <use href="/src/images/sprite.svg#icon-right"></use>
+          </svg>
+          <svg class="nav-icon end-2">
+            <use href="/src/images/sprite.svg#icon-right"></use>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>

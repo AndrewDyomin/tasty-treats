@@ -1,53 +1,117 @@
 .filter-form-item {
-    margin-bottom: 14px;
+  margin-bottom: 14px;
 }
 
 .filter-form-label {
-    width: 100%;
-    box-sizing: border-box;
-    color: rgba(5, 5, 5, 0.50);
-    font-family: 'Inter';
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.16;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(5, 5, 5, 0.5);
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.16;
 }
 
 .search-area {
-    display: flex;
-    margin-top: 8px;
-    width: 100%;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 18px;
-    align-items: flex-start;
-    gap: 32px;
-    border-radius: 15px;
-    border: 1px solid rgba(5, 5, 5, 0.20);
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
 }
 
 .search-input {
-    color: rgba(5, 5, 5, 0.50);
-    font-family: 'Inter';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.28;
-    border: none;
-    margin-left: 30px;
+  color: rgba(5, 5, 5, 0.5);
+  font-family: 'Inter';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  border: none;
+  margin-left: 30px;
 }
 
 .search-icon {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    fill: rgba(5, 5, 5, 0.50);
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  fill: rgba(5, 5, 5, 0.5);
 }
 
 .search-input-active {
-    color: #050505;
+  color: #050505;
 }
 
 .search-icon-active {
-    fill: #9BB537;
+  fill: #9bb537;
+}
+
+.select {
+  width: 100%;
+  padding: 14px 18px;
+  margin-top: 8px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  background-color: inherit;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(5, 5, 5, 0.3);
+}
+
+.select.ingredients {
+  display: block;
+  width: 188px;
+  height: 46px;
+}
+
+.label-flex {
+  display: flex;
+  gap: 14px;
+}
+
+option {
+  width: 100%;
+  border-radius: 15px;
+  border: inherit;
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(5, 5, 5, 0.3);
+}
+
+@media screen and (min-width: 375px) {
+  .search-input {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .search-area {
+    width: 278px;
+  }
+
+  .filter-form-list {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .label-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1140px) {
 }
