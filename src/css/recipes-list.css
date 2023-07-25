@@ -151,9 +151,6 @@
   .recipe-section {
     width: 496px;
     padding: 0 0 100px 0;
-    position: absolute;
-    top: 1100px;
-    left: 240px;
     margin: auto;
   }
 
@@ -213,9 +210,6 @@
   .recipe-section {
     width: 782px;
     padding: 0 0 100px 0;
-    position: absolute;
-    top: 728px;
-    left: 700px;
   }
 
   .resipes-list {
