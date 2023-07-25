@@ -20,7 +20,7 @@ function createRecipesCards (data) {
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
                 <p class="recipe-card-description">${recipe.description}</p>
-                <button type="button" class="recipe-card-button">See recipe</button>
+                <button type="button" class="recipe-card-button data-modal-recipte-open">See recipe</button>
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
