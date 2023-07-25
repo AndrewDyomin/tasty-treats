@@ -1,9 +1,8 @@
 import Swiper from 'swiper';
-import '../../node_modules/swiper/swiper.css';
-import '../../node_modules/swiper/modules/pagination-element.min.css';
+import 'swiper/swiper-bundle.css';
+import 'swiper/modules/pagination.min.css'
 import axios from 'axios';
-import { showLoader, hideLoader } from './loader'
-
+import { showLoader, hideLoader } from './loader';
 
 const apiUrl = 'https://tasty-treats-backend.p.goit.global/api/events';
 const refs = {
@@ -37,6 +36,7 @@ async function createSlider() {
     refs.loader.style.display = 'none';
   }
 }
+
 
 async function fetchEventsData() {
   try {
