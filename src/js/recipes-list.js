@@ -9,7 +9,7 @@ const recipesListEl = document.querySelector('.resipes-list');
 
 
 
-function createRecipesCards (data) {
+async function createRecipesCards (data) {
     try {
         const { data } = await unsplashApi.fetchRecipes();
         recipesListEl.innerHTML = '';
