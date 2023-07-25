@@ -11,7 +11,6 @@ const recipesListEl = document.querySelector('.resipes-list');
 
 async function createRecipesCards (data) {
     try {
-        const { data } = await unsplashApi.fetchRecipes();
         recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
