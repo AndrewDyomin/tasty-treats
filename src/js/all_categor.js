@@ -1,7 +1,4 @@
 
-
-
- 
   const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
   const categoriesContainer = document.getElementById('categories');
   const overallButton = document.querySelector('.categorBt');
@@ -35,7 +32,7 @@
     
     return categoryList;
   }
-  // функція зімання ільтрів і категорій натисканням на загальну кнопку
+  // функція знімання фільтрів і категорій натисканням на загальну кнопку
   function clearActiveStates() {
     const categoryButtons = categoriesContainer.querySelectorAll('.category-button');
     categoryButtons.forEach(button => {
