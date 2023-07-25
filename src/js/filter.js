@@ -5,6 +5,9 @@ import { createRecipesCards, reloadRecipesList } from './recipes-list'
 const unsplashApi = new UnsplashAPI();
 const _ = require('lodash');
 const searchInputEl = document.querySelector('.search-input');
+const timeSelectorEl = document.querySelector('#time');
+const areaSelectorEl = document.querySelector('#area');
+const ingredientSelectorEl = document.querySelector('#ingredients')
 const searchIconEl = document.querySelector('.search-icon');
 const filterFormEl = document.querySelector('.filter-form');
 const recipesListEl = document.querySelector('.resipes-list');
@@ -24,13 +27,17 @@ function searchInputChangeHandler(e) {
 };
 
 const searchRecipes = async () => {
-    let endpoint = '/recipes';
-    let currentPage = 1;
-    let itemsPerPage = 6;
-    let searchQuerry = searchInputEl.value.trim();
-    let requestParams = `${endpoint}?page=${currentPage}&limit=${itemsPerPage}&title=${searchQuerry}`;
+    unsplashApi.endpoint = '/recipes';
+    unsplashApi.searchQuerry = searchInputEl.value.trim();
+    unsplashApi.queryTime = timeSelectorEl.value;
+    unsplashApi.queryArea = areaSelectorEl.value;
+    unsplashApi.queryIngredient = ingredientSelectorEl.value;
+    console.log(searchInputEl.value);
+    console.log(timeSelectorEl.value);
+    console.log(areaSelectorEl.value);
+    console.log(ingredientSelectorEl.value);
     try {
-        const { data } = await unsplashApi.fetchRecipes(requestParams);
+        const { data } = await unsplashApi.fetchRecipes();
       createRecipesCards(data);
       console.log(data)
     } catch (err) {
@@ -38,5 +45,5 @@ const searchRecipes = async () => {
     }
 }
 
-searchInputEl.addEventListener('input', _.debounce(searchInputChangeHandler, 300));
+filterFormEl.addEventListener('change', _.debounce(searchInputChangeHandler, 300));
 filterFormEl.addEventListener('submit', searchInputChangeHandler);
