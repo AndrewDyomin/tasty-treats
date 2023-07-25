@@ -2,17 +2,14 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 
 const unsplashApi = new UnsplashAPI();
-let itemsPerPage = null;
-let currentPage = null;
+let itemsPerPage = 6;
+let currentPage = 1;
 const recipesListEl = document.querySelector('.resipes-list');
 
 
-export default async function createRecipesCards () {
+function createRecipesCards (data) {
     try {
-        const { data } = await unsplashApi.fetchRecipes();
-      console.log(data);
-      itemsPerPage = data.page;
-      currentPage = data.perPage;
+        recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
             `<li class="recipes-list-item">
@@ -33,7 +30,14 @@ export default async function createRecipesCards () {
     }
 }
 
-createRecipesCards()
+async function reloadRecipesList () {
+  let requestParams = `/recipes?page=${currentPage}&limit=${itemsPerPage}`;
+  const { data } = await unsplashApi.fetchRecipes(requestParams);
+  console.log(data)
+  createRecipesCards(data);
+}
+
+reloadRecipesList();
 
 const refs = {
   pageNext: document.querySelector('.next-page'),
@@ -41,6 +45,8 @@ const refs = {
 };
 refs.pageNext.addEventListener('click', nextPage);
 function nextPage() {
-  itemsPerPage++;
-  
+  currentPage++;
+  reloadRecipesList();
 }
+
+export { createRecipesCards, reloadRecipesList };

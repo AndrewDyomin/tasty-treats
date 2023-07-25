@@ -1,5 +1,6 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
+import { createRecipesCards, reloadRecipesList } from './recipes-list'
 
 const unsplashApi = new UnsplashAPI();
 const _ = require('lodash');
@@ -18,29 +19,23 @@ function searchInputChangeHandler(e) {
     } else {
         searchInputEl.classList.remove('search-input-active');
         searchIconEl.classList.remove('search-icon-active');
+        reloadRecipesList()
     }
 };
 
 const searchRecipes = async () => {
-    // try {
-    //     const params = '/recipes';
-    //     const { data } = await unsplashApi.fetchRecipes(params);
-    //   console.log(data);
-    //     for (const recipe of data.results) {
-    //         const markup = 
-    //         `<li class="recipes-list-item">
-    //           <div class="recipe-card">
-    //             <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
-    //             <p class="recipe-card-title">${recipe.title}</p>
-    //             <p class="recipe-card-description">${recipe.description}</p>
-    //             <button type="button" class="recipe-card-button">See recipe</button>
-    //           </div>
-    //         </li>`;
-    //         recipesListEl.insertAdjacentHTML("beforeend", markup);
-    //       }
-    // } catch (err) {
-    //     Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
-    // }
+    let endpoint = '/recipes';
+    let currentPage = 1;
+    let itemsPerPage = 6;
+    let searchQuerry = searchInputEl.value.trim();
+    let requestParams = `${endpoint}?page=${currentPage}&limit=${itemsPerPage}&title=${searchQuerry}`;
+    try {
+        const { data } = await unsplashApi.fetchRecipes(requestParams);
+      createRecipesCards(data);
+      console.log(data)
+    } catch (err) {
+        Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+    }
 }
 
 searchInputEl.addEventListener('input', _.debounce(searchInputChangeHandler, 300));
