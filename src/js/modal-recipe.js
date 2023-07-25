@@ -53,7 +53,7 @@ function markup(data) {
             <p>${time}</p>
         </div>
         <ul class="modal-ingredients">${ingredients}</ul>
-        <ul class="modal-tags">;${tags}</ul>
+        <ul class="modal-tags">${tags}</ul>
         <p>${instructions}</p>
         `;
     })
