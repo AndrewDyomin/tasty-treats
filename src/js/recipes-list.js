@@ -2,6 +2,7 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 
 const unsplashApi = new UnsplashAPI();
+
 let itemsPerPage = 6;
 let currentPage = 1;
 const recipesListEl = document.querySelector('.resipes-list');
@@ -10,6 +11,7 @@ const recipesListEl = document.querySelector('.resipes-list');
 
 function createRecipesCards (data) {
     try {
+        const { data } = await unsplashApi.fetchRecipes();
         recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
