@@ -10,6 +10,7 @@
 @import url('./css/all_categori.css');
 @import url('./css/scrollToTop.css');
 @import url('./css/loader.css');
+@import url('./css/modal-recipe.css');
 
 .container {
   margin: 0 auto;
