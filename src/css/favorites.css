@@ -1,22 +1,48 @@
-.container {
+body {
+  font-family: var(--basic-font-family);
+  font-weight: 400;
+}
+
+.fav-container {
   margin: 0 auto;
   padding: 0 16px;
 }
 
 .fav-hero-section {
-  padding-top: 24px;
-  padding-bottom: 40px;
+  /* margin-top: 24px; */
 }
 
-.fav-hero-container {
+.fav-hero-pic img {
+  max-height: 516px;
 }
 
-.fav-hero-pic {
-  height: 516px;
+.fav-content-section {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+.fav-no-recipes-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-recipes-icon {
+  width: 68px;
+  height: 58px;
+  margin-bottom: 24px;
+}
+
+.no-resipes-descr {
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 335px;
+
+  text-align: center;
 }
 
 @media screen and (min-width: 375px) {
-  .container {
+  .fav-container {
     width: 375px;
     padding-left: 20px;
     padding-right: 20px;
@@ -24,33 +50,50 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .fav-container {
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   .fav-hero-section {
-    padding-top: 22px;
-    padding-bottom: 64px;
+    /* margin-top: 22px; */
   }
 
-  .fav-hero-pic {
+  .fav-hero-pic img {
     height: 356px;
+  }
+
+  .fav-content-section {
+    padding-top: 64px;
+    padding-bottom: 319px;
+  }
+
+  .no-recipes-icon {
+    width: 97px;
+    height: 83px;
+    margin-bottom: 32px;
+  }
+
+  .no-recipes-descr {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 481px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .container {
+  .fav-container {
     width: 1280px;
     padding-left: 100px;
     padding-right: 100px;
   }
 
   .fav-hero-section {
-    padding-top: 20px;
+    /* margin-top: 20px; */
   }
 
-  .fav-hero-pic {
+  .fav-content-section {
+    padding-bottom: 64px;
   }
 }
