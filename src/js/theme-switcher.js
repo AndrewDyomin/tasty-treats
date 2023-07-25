@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const bodyTheme = document.body;
     const desktopThemeSwitcher = document.querySelector('.header-switch input');
-    const mobThemeSwitcher = docu.querySelector('.switch input');
+    const mobThemeSwitcher = document.querySelector('.switch input');
     const desktopHeader = document.querySelector('.header');
 
 
