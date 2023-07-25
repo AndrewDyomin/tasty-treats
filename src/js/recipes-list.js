@@ -2,12 +2,17 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 
 const unsplashApi = new UnsplashAPI();
+
+let itemsPerPage = 6;
+let currentPage = 1;
 const recipesListEl = document.querySelector('.resipes-list');
 
 
-export default async function createRecipesCards () {
+
+function createRecipesCards (data) {
     try {
         const { data } = await unsplashApi.fetchRecipes();
+        recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
             `<li class="recipes-list-item">
@@ -18,7 +23,7 @@ export default async function createRecipesCards () {
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
                 <p class="recipe-card-description">${recipe.description}</p>
-                <button type="button" class="recipe-card-button">See recipe</button>
+                <button type="button" class="recipe-card-button" name="${recipe._id}" data-modal-recipte-open>See recipe</button>
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
@@ -28,4 +33,23 @@ export default async function createRecipesCards () {
     }
 }
 
-createRecipesCards()
+async function reloadRecipesList () {
+  let requestParams = `/recipes?page=${currentPage}&limit=${itemsPerPage}`;
+  const { data } = await unsplashApi.fetchRecipes(requestParams);
+  console.log(data)
+  createRecipesCards(data);
+}
+
+reloadRecipesList();
+
+const refs = {
+  pageNext: document.querySelector('.next-page'),
+  pagePrev: document.querySelector('.preview-page'),
+};
+refs.pageNext.addEventListener('click', nextPage);
+function nextPage() {
+  currentPage++;
+  reloadRecipesList();
+}
+
+export { createRecipesCards, reloadRecipesList };
