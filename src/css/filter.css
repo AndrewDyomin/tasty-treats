@@ -95,15 +95,24 @@ option {
 }
 
 .btn-rst {
-  margin-top: 14px;
-  margin-bottom: 20px;
-  margin-left: 230px;
   border: inherit;
   background-color: inherit;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   line-height: calc(1.33);
   color: rgba(5, 5, 5, 0.5);
+}
+.rst-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-left: 230px;
+}
+.rst-btn-svg {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(5, 5, 5, 0.5);
 }
 
 @media screen and (min-width: 375px) {
@@ -129,8 +138,9 @@ option {
     gap: 16px;
   }
 
-  .btn-rst {
-    margin-left: 391px;
+  .rst-btn {
+    margin-left: 184px;
+    margin-top: 14px;
     margin-bottom: 14px;
   }
 }
@@ -158,7 +168,7 @@ option {
     width: 188px;
   }
 
-  .btn-rst {
-    margin-left: 676px;
+  .rst-btn {
+    margin-left: 670px;
   }
 }

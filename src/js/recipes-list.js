@@ -1,5 +1,6 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
+import loadNumberRecipe from './numbers-recipe-card';
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
@@ -29,8 +30,8 @@ function createRecipesCards (data) {
 }
 
 async function reloadRecipesList () {
-  unsplashApi.endpoint = '/recipes';
-  const { data } = await unsplashApi.fetchRecipes();
+  loadNumberRecipe.endpoint = '/recipes';
+  const { data } = await loadNumberRecipe.fetchRecipes();
   console.log(data)
   createRecipesCards(data);
 }
@@ -43,13 +44,13 @@ const refs = {
 };
 refs.pageNext.addEventListener('click', nextPage);
 function nextPage() {
-  unsplashApi.currentPage ++;
+  loadNumberRecipe.currentPage ++;
   reloadRecipesList();
 }
 
 refs.pagePrev.addEventListener('click', prevPage);
 function prevPage() {
-  unsplashApi.currentPage --;
+  loadNumberRecipe.currentPage --;
   reloadRecipesList();
 }
 
