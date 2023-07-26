@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./css/favorites.css" />
 </head>
 
-<body>
+<body class="body">
     <include src="./partials/sections/header.html"></include>
 
     <main>
@@ -43,13 +43,17 @@
             </div>
         </section>
 
+
         <section class="fav-content-section">
             <div class="fav-container fav-content-container">
-                <div class="fav-resipes-list">
+                <ul class="fav-category-recipe-list">
+                    <button type="button" class="category-btn">All categories</button>
+                </ul>
 
-                </div>
+                <ul class="fav-resipes-list"></ul>
 
-                <div class="fav-no-recipes-content">
+
+                <div class="fav-no-recipes-content is-hidden">
                     <svg class="no-recipes-icon">
                         <use href="./images/sprite.svg#icon-chef-hat"></use>
                     </svg>
@@ -59,9 +63,13 @@
                         started, you can add recipes that you like
                         to your favorites for easier access in the future.
                     </p>
+
+
                 </div>
             </div>
         </section>
+
+        <div class="btn-up btn-up_hide"></div>
     </main>
 
     <script type="module" src="./js/favorites-page.js"></script>
