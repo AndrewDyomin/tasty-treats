@@ -4,19 +4,13 @@ export class UnsplashAPI {
 
 #BASE_URL = 'https://tasty-treats-backend.p.goit.global/api'
 endpoint = '';
-  currentPage = 1;
-  itemsPerPage;
-  time;
-  area;
-  ingredient;
+currentPage = 1;
+itemsPerPage = 9;
+time;
+area;
+ingredient;
 
 
-  constructor({itemsPerPage, time, area, ingredient}) {
-    this.itemsPerPage = itemsPerPage;
-    this.time = time;
-    this.area = area;
-    this.ingredient = ingredient;
-  };
   
 async fetchRecipes() {
   return await axios.get(`${this.#BASE_URL}${this.endpoint}`, {

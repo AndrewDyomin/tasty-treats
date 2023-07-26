@@ -1,6 +1,6 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
-import loadNumberRecipe from './numbers-recipe-card';
+import throttle from 'lodash.throttle'
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
@@ -30,13 +30,44 @@ function createRecipesCards (data) {
 }
 
 async function reloadRecipesList () {
-  loadNumberRecipe.endpoint = '/recipes';
-  const { data } = await loadNumberRecipe.fetchRecipes();
+  unsplashApi.endpoint = '/recipes';
+  const { data } = await unsplashApi.fetchRecipes();
   console.log(data)
   createRecipesCards(data);
 }
 
 reloadRecipesList();
+
+window.addEventListener('resize', throttle(changeNumberRecipe, 300));
+
+function changeNumberRecipe () {
+    let currentWidth = window.innerWidth;
+    if (currentWidth <= 767) {
+        unsplashApi.itemsPerPage = 6;
+        reloadRecipesList();
+    } else if (currentWidth >= 768 && currentWidth < 1140) {
+        unsplashApi.itemsPerPage = 8;
+        reloadRecipesList();
+    } else {
+        unsplashApi.itemsPerPage = 9;
+        reloadRecipesList();
+    }
+}
+
+window.addEventListener('resize', function () {
+    let currentWidth = window.innerWidth;
+    if (currentWidth <= 767) {
+        unsplashApi.itemsPerPage = 6;
+        reloadRecipesList();
+    } else if (currentWidth >= 768 && currentWidth < 1140) {
+        unsplashApi.itemsPerPage = 8;
+        reloadRecipesList();
+    } else {
+        unsplashApi.itemsPerPage = 9;
+        reloadRecipesList();
+    }
+});
+
 
 const refs = {
   pageNext: document.querySelector('.next-page'),
@@ -44,13 +75,13 @@ const refs = {
 };
 refs.pageNext.addEventListener('click', nextPage);
 function nextPage() {
-  loadNumberRecipe.currentPage ++;
+  unsplashApi.currentPage ++;
   reloadRecipesList();
 }
 
 refs.pagePrev.addEventListener('click', prevPage);
 function prevPage() {
-  loadNumberRecipe.currentPage --;
+  unsplashApi.currentPage --;
   reloadRecipesList();
 }
 
