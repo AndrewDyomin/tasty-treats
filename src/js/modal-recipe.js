@@ -11,6 +11,8 @@ const refs = {
   ratingBtn: document.querySelector('.rating-btn'),
 };
 
+
+
 refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
