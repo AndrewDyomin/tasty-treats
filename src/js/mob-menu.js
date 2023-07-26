@@ -9,3 +9,4 @@ mobMenuBtn.addEventListener('click', function() {
 mobMenuCloseBtn.addEventListener('click', function() {
   mobileMenu.classList.remove('open');
 });
+
