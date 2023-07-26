@@ -11,17 +11,15 @@ const refs = {
   ratingBtn: document.querySelector('.rating-btn'),
 };
 
-
-
 refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
-  refs.modal.classList.add('is-hidden');
+  refs.modal.classList.toggle('is-hidden');
 }
 
 async function heardleRecipeById() {
-  refs.modal.classList.remove('is-hidden');
+  toggleModal();
 
   //   let requestParams = `/recipes/${id}`;
   //   const { data } = await unsplashApi.fetchRecipes(requestParams);
