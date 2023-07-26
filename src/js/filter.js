@@ -11,6 +11,7 @@ const ingredientSelectorEl = document.querySelector('#ingredients')
 const searchIconEl = document.querySelector('.search-icon');
 const filterFormEl = document.querySelector('.filter-form');
 const recipesListEl = document.querySelector('.resipes-list');
+const resetBtn = document.querySelector('.rst-btn');
 
 function searchInputChangeHandler(e) {
     e.preventDefault();
@@ -38,12 +39,25 @@ const searchRecipes = async () => {
     console.log(ingredientSelectorEl.value);
     try {
         const { data } = await unsplashApi.fetchRecipes();
-      createRecipesCards(data);
-      console.log(data)
+        createRecipesCards(data);
+        console.log(data)
+    
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
     }
+};
+
+function clearFilters() {
+    timeSelectorEl.value = '10';
+    areaSelectorEl.value = 'french';
+    ingredientSelectorEl.value = 'cabbage';
+    unsplashApi.searchQuerry = '';
+    unsplashApi.queryTime = '';
+    unsplashApi.queryArea = '';
+    unsplashApi.queryIngredient = '';
+    reloadRecipesList();
 }
 
 filterFormEl.addEventListener('change', _.debounce(searchInputChangeHandler, 300));
 filterFormEl.addEventListener('submit', searchInputChangeHandler);
+resetBtn.addEventListener('click', clearFilters);
