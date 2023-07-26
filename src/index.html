@@ -21,17 +21,18 @@
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body class="body">
-
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <include src="./partials/sections/header.html"></include>
     <include src="./partials/sections/hero.html"></include>
-    <include src="./partials/sections/all_categor.html"></include>
-    <include src="./partials/sections/recipes-list.html"></include>
+    <div class="flex-container">
+      <include src="./partials/sections/all_categor.html"></include>
+      <include src="./partials/sections/recipes-list.html"></include>
+    </div>
     <include src="./partials/scroll-to-top.html"></include>
     <include src="./partials/loader.html"></include>
-    <!--<include src="./partials/sections/popular-recipes.html"></include> -->
+    <include src="./partials/sections/modal-recipe.html"></include>
+    
 
     <script type="module" src="./index.js"></script>
   </body>
-
 </html>
