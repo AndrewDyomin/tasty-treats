@@ -18,6 +18,11 @@
 
 .recipe-card > img {
   border-radius: 15px;
+  background-image: linear-gradient(
+    to right,
+    rgba(5, 5, 5, 0.5),
+    rgba(5, 5, 5, 0.5)
+  );
 }
 
 .recipe-card-title {
@@ -138,8 +143,12 @@
   right: 16px;
   width: 22px;
   height: 22px;
-  fill: inherit;
-  stroke: #ffffff;
+  stroke: #f8f8f8;
+  fill: none;
+}
+
+.favorite-icon:is(:hover, :focus) {
+  fill: #f8f8f8;
 }
 
 .filter-form-list {

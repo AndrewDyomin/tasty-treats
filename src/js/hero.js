@@ -99,3 +99,4 @@ function createMarkup(ivent) {
 function addIventsInSlick(markup) {
   refs.swiper.innerHTML = markup;
 }
+

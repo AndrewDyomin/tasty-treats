@@ -1,6 +1,7 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 import throttle from 'lodash.throttle'
+import svg from '../images/sprite.svg';
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
@@ -15,13 +16,13 @@ function createRecipesCards (data) {
             const markup = 
             `<li class="recipes-list-item">
               <svg class="favorite-icon">
-                <use href="/src/images/sprite.svg#icon-heart"></use>
+                <use href="${svg}#icon-heart"></use>
               </svg>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
                 <p class="recipe-card-description">${recipe.description}</p>
-                <button type="button" class="recipe-card-button data-modal-recipte-open">See recipe</button>
+                <button type="button" class="recipe-card-button" data-modal-recipte-open>See recipe</button>
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
