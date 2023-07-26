@@ -1,6 +1,6 @@
 import './js/hero'
 import './js/recipes-list'
-//import './js/popular-recipes'
+import './js/popular-recipes'
 import './js/filter'
 import './js/pagination'
 import './js/numbers-recipe-car'
