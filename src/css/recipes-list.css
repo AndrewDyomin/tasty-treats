@@ -113,6 +113,9 @@
 .page-numbers {
   margin-left: 14px;
   margin-right: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .end-1,
@@ -142,6 +145,23 @@
 .filter-form-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.pageBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(5, 5, 5, 0.5);
+  color: var(--main-color);
+  background-color: inherit;
+}
+
+.pageBtn:is(:hover, :focus) {
+  background-color: var(--btn-color);
+}
+
+.current-page {
+  background-color: var(--btn-color);
 }
 
 @media screen and (min-width: 375px) {

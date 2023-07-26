@@ -4,6 +4,7 @@ import throttle from 'lodash.throttle'
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
+const pageNumber = document.querySelector('.page-numbers');
 
 
 function createRecipesCards (data) {
@@ -29,6 +30,22 @@ function createRecipesCards (data) {
     }
 }
 
+// Создание разметки кнопок
+function createNumberPage(data) {
+    for (let i = 1; i <= data.totalPages; i++) {
+        const markup = `
+        <button class="pageBtn" type="button">${i}</button>
+        `
+        pageNumber.insertAdjacentHTML("beforeend", markup);
+    }
+}
+async function loadButtonList () {
+  unsplashApi.endpoint = '/recipes';
+  const { data } = await unsplashApi.fetchRecipes();
+  createNumberPage(data);
+}
+loadButtonList();
+
 async function reloadRecipesList () {
   unsplashApi.endpoint = '/recipes';
   const { data } = await unsplashApi.fetchRecipes();
@@ -38,6 +55,13 @@ async function reloadRecipesList () {
 
 reloadRecipesList();
 
+const pageBtn = document.querySelector('.pageBtn')
+pageNumber.addEventListener('click', changePage);
+function changePage() {
+  console.log(pageBtn.value);
+}
+
+// Изменение отображения количества рецептов в зависимости от ширина вьюпорта
 window.addEventListener('resize', throttle(changeNumberRecipe, 300));
 
 function changeNumberRecipe () {
