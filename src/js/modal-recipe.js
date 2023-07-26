@@ -5,25 +5,33 @@ import openModalRecipeBtn from './recipes-list';
 const unsplashApi = new UnsplashAPI();
 const refs = {
   modal: document.querySelector('[data-modal-recipe]'),
-  //   openModalRecipeBtn: document.querySelector('.recipe-card-button'),
+  openModalRecipeBtn: document.querySelector('.resipes-list'),
   closeModalBtn: document.querySelector('.js-modal-close'),
   addToFavoriteBtn: document.querySelector('.add-favorite-btn'),
   ratingBtn: document.querySelector('.rating-btn'),
+  buttonOpen: document.querySelector('.recipe-card-button'),
 };
 
+// refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
-  refs.modal.classList.toggle('is-hidden');
+  refs.modal.classList.toggle('is-hidden-modal');
 }
 
-async function heardleRecipeById() {
-  toggleModal();
+async function heardleRecipeById(e) {
+  const click = e.target;
+  const btn = 'recipe-card-button';
+  if (click.className !== btn) {
+    return;
+  } else {
+    toggleModal();
+  }
 
-  //   let requestParams = `/recipes/${id}`;
-  //   const { data } = await unsplashApi.fetchRecipes(requestParams);
-  //   markup(data);
+    let requestParams = `/recipes/6462a8f74c3d0ddd288980d4`;
+    const { data } = await unsplashApi.fetchRecipes(requestParams);
+    markup(data);
 }
 
 function markup(data) {
