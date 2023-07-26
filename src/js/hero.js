@@ -29,8 +29,7 @@ async function createSlider() {
     });
     
 
-    swiper.scrollbar?.scrollTo(0, 0, 0);
-
+   
     refs.loader.style.display = 'none';
   } catch (error) {
     console.error('Error creating slider:', error);
