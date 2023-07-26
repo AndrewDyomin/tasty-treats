@@ -11,6 +11,7 @@
 } */
 .header{
     padding-top: 24px;
+    padding-bottom: 114px;
 }
 .navigation{
     display: none;
@@ -148,11 +149,11 @@
 .mobile-menu {
     background-color: var(---btn-color);
     height: 100%;
-    width: 100%;
+    width: 200px;
     position: fixed;
     z-index: 999;
     top: 0;
-    left: 0;
+    right: 0;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
 }
