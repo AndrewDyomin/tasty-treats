@@ -30,13 +30,6 @@ function searchInputChangeHandler(e) {
 const searchRecipes = async () => {
     unsplashApi.endpoint = '/recipes';
     unsplashApi.searchQuerry = searchInputEl.value.trim();
-    unsplashApi.queryTime = timeSelectorEl.value;
-    unsplashApi.queryArea = areaSelectorEl.value;
-    unsplashApi.queryIngredient = ingredientSelectorEl.value;
-    console.log(searchInputEl.value);
-    console.log(timeSelectorEl.value);
-    console.log(areaSelectorEl.value);
-    console.log(ingredientSelectorEl.value);
     try {
         const { data } = await unsplashApi.fetchRecipes();
         createRecipesCards(data);
@@ -48,16 +41,31 @@ const searchRecipes = async () => {
 };
 
 function clearFilters() {
+    searchInputEl.value = null;
     timeSelectorEl.value = '10';
     areaSelectorEl.value = 'french';
     ingredientSelectorEl.value = 'cabbage';
-    unsplashApi.searchQuerry = '';
-    unsplashApi.queryTime = '';
-    unsplashApi.queryArea = '';
-    unsplashApi.queryIngredient = '';
+    unsplashApi.searchQuerry = null;
+    unsplashApi.queryTime = null;
+    unsplashApi.queryArea = null;
+    unsplashApi.queryIngredient = null;
     reloadRecipesList();
 }
 
-filterFormEl.addEventListener('change', _.debounce(searchInputChangeHandler, 300));
+searchInputEl.addEventListener('input', _.debounce(searchInputChangeHandler, 300));
 filterFormEl.addEventListener('submit', searchInputChangeHandler);
+timeSelectorEl.addEventListener('change', () => {
+    unsplashApi.queryTime = timeSelectorEl.value
+    searchRecipes();
+});
+areaSelectorEl.addEventListener('change', () => {
+    unsplashApi.queryArea = areaSelectorEl.value
+    searchRecipes();
+});
+ingredientSelectorEl.addEventListener('change', () => {
+    unsplashApi.queryIngredient = ingredientSelectorEl.value
+    searchRecipes();
+});
 resetBtn.addEventListener('click', clearFilters);
+
+
