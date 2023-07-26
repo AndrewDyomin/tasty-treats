@@ -54,21 +54,6 @@ function changeNumberRecipe () {
     }
 }
 
-window.addEventListener('resize', function () {
-    let currentWidth = window.innerWidth;
-    if (currentWidth <= 767) {
-        unsplashApi.itemsPerPage = 6;
-        reloadRecipesList();
-    } else if (currentWidth >= 768 && currentWidth < 1140) {
-        unsplashApi.itemsPerPage = 8;
-        reloadRecipesList();
-    } else {
-        unsplashApi.itemsPerPage = 9;
-        reloadRecipesList();
-    }
-});
-
-
 const refs = {
   pageNext: document.querySelector('.next-page'),
   pagePrev: document.querySelector('.preview-page'),
