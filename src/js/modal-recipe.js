@@ -22,15 +22,16 @@ function toggleModal() {
 async function heardleRecipeById(e) {
   const click = e.target;
   const btn = 'recipe-card-button';
-  if (click.className !== btn) {
+  const btnFavorites = 'fav-recipe-card-button'
+  if (click.className !== btn || btnFavorites)  {
     return;
   } else {
     toggleModal();
   }
 
-    let requestParams = `/recipes/6462a8f74c3d0ddd288980d4`;
-    const { data } = await unsplashApi.fetchRecipes(requestParams);
-    markup(data);
+    // let requestParams = `/recipes/6462a8f74c3d0ddd288980d4`;
+    // const { data } = await unsplashApi.fetchRecipes(requestParams);
+    // markup(data);
 }
 
 function markup(data) {
