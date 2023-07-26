@@ -1,32 +1,30 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
+import openModalRecipeBtn from './recipes-list';
 
 const unsplashApi = new UnsplashAPI();
 const refs = {
   modal: document.querySelector('[data-modal-recipe]'),
-  openModalRecipeBtn: document.querySelector('[data-modal-recipte-open]'),
-  closeModalBtn: document.querySelector('js-modal-close'),
-  addToFavoriteBtn: document.querySelector('add-favorite-btn'),
-  ratingBtn: document.querySelector('rating-btn'),
+  //   openModalRecipeBtn: document.querySelector('.recipe-card-button'),
+  closeModalBtn: document.querySelector('.js-modal-close'),
+  addToFavoriteBtn: document.querySelector('.add-favorite-btn'),
+  ratingBtn: document.querySelector('.rating-btn'),
 };
 
 openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
-  refs.modal.classList.toggle('is-hidden');
+  refs.modal.classList.add('is-hidden');
 }
 
-async function loadRecipeId() {
-  let requestParams = `/recipes/${id}`;
-  const { data } = await unsplashApi.fetchRecipes(requestParams);
-  console.log(data);
-  createRecipesCards(data);
+async function heardleRecipeById() {
+  refs.modal.classList.remove('is-hidden');
+
+  //   let requestParams = `/recipes/${id}`;
+  //   const { data } = await unsplashApi.fetchRecipes(requestParams);
+  //   markup(data);
 }
-
-loadRecipeId();
-
-async function heardleRecipeById() {}
 
 function markup(data) {
   const ingredients = data
