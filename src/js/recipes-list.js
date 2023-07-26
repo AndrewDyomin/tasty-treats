@@ -1,5 +1,6 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
+import throttle from 'lodash.throttle'
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
@@ -36,6 +37,22 @@ async function reloadRecipesList () {
 }
 
 reloadRecipesList();
+
+window.addEventListener('resize', throttle(changeNumberRecipe, 300));
+
+function changeNumberRecipe () {
+    let currentWidth = window.innerWidth;
+    if (currentWidth <= 767) {
+        unsplashApi.itemsPerPage = 6;
+        reloadRecipesList();
+    } else if (currentWidth >= 768 && currentWidth < 1140) {
+        unsplashApi.itemsPerPage = 8;
+        reloadRecipesList();
+    } else {
+        unsplashApi.itemsPerPage = 9;
+        reloadRecipesList();
+    }
+}
 
 const refs = {
   pageNext: document.querySelector('.next-page'),

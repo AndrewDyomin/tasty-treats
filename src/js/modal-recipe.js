@@ -10,8 +10,8 @@ const refs = {
   ratingBtn: document.querySelector('rating-btn'),
 };
 
-openModalRecipeBtn.addEventListener('click', heardleRecipeById);
-closeModalBtn.addEventListener('click', toggleModal);
+refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
+refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
