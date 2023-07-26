@@ -1,2 +1,0 @@
-const e=document.querySelector(".fav-hero-pic");document.querySelector(".fav-resipes-list"),document.querySelector(".fav-no-recipes-content");console.log("heroPicture",e),console.log(window),function(){window.innerWidth<768?e.style.display="none":e.style.display="";window.addEventListener("resize",(n=>{window.innerWidth<768?e.style.display="none":e.style.display=""}))}();
-//# sourceMappingURL=fav-page.75ea5a79.js.map
