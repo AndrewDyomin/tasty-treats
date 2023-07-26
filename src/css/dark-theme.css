@@ -1,0 +1,82 @@
+/* Dark theme*/
+
+/** Body **/
+
+body.dark-theme{
+    background-color: var(#161616);
+}
+
+
+
+/** Header **/
+
+.dark-theme .logo-second{
+    color: var(#fff);
+}
+
+.dark-theme .header-nav-links{
+    color: #fff;
+}
+
+.dark-theme .shopping-icon-use{
+    fill: var(--main-color);
+    stroke: var(#fff);
+}
+
+.dark-theme .mobile-menu-icon {
+    stroke: var(#fff);
+}
+
+.dark-theme .mobile-menu{
+    background-color: var(--main-color);
+}
+
+/** Hero **/
+
+.dark-theme .event-title{
+    color: var(#fff);
+}
+
+.dark-theme .event-text{
+    color: var(#fff);
+}
+
+.dark-theme .event-order{
+    background-color: transparent;
+    color: var(#fff);
+}
+
+.dark-theme .modal-window{
+    background-color: var(--main-color);
+}
+
+.dark-theme .modal-title{
+    color: #fff;
+}
+
+.dark-theme .form-modal{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-theme .input{
+    background-color: transparent;
+    color: #fff;
+}
+
+.dark-theme .comment{
+    background-color: transparent;
+    color: #fff;
+}
+
+/** All categories **/
+
+
+
+/** Scroll to top **/
+
+.dark-theme .btn-up{
+    fill: var(#fff);
+}
+
+
+/** Favorites **/
