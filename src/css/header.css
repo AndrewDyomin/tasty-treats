@@ -1,11 +1,7 @@
 /* Main Styles */
 :root {
-    /* --green: #9BB537; */
-    /* --black: #050505; */
-    /* --background-w: #F8F8F8; */
-    --gray-radiobtn-w: #CECDCD;
-    --white: #ffffff;
-    
+    /* --gray-radiobtn-w: #CECDCD; */
+
     --trns-general: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --animate: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -43,7 +39,7 @@
     color: var(--main-color);
     font-size: 12px;
     font-weight: 500;
-    font-size: 12px;
+    font-family: var(--basic-font-family);
     
 }
 
@@ -198,15 +194,15 @@
     padding-bottom: 566px;
 }
 
-/*.header-list-item .main-page{
-    color: var(--white);
+.header-list-item .main-page{
+    color: #ffffff;
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
-}*/
+}
 
 .header-list-item{
-    color: var(--white-d);
+    color: #ffffff;
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
@@ -266,7 +262,7 @@ input:checked+.slider:before {
 }
 
 .shopping-icon-use{
-    fill: var(--white-w);
+    fill: #ffffff;
     stroke: var(--main-color);
 }
 
