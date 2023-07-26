@@ -9,7 +9,6 @@ const refs = {
   closeModalBtn: document.querySelector('.js-modal-close'),
   addToFavoriteBtn: document.querySelector('.add-favorite-btn'),
   ratingBtn: document.querySelector('.rating-btn'),
-  buttonOpen: document.querySelector('.recipe-card-button'),
 };
 
 // refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
