@@ -1,4 +1,4 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper/swiper-bundle.min.mjs';
 import 'swiper/swiper-bundle.css';
 import 'swiper/modules/pagination.min.css'
 import axios from 'axios';
