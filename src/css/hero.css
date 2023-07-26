@@ -294,9 +294,9 @@
 
 .hero-slider .swiper-pagination-bullet {
   opacity: 1;
-  background-color: var(--main-color);
+  background-color: var(--main-color) !important;
 }
 
 .hero-slider .swiper-pagination-bullet-active {
-  background-color: var(--btn-color);
+  background-color: var(--btn-color) !important;
 }
