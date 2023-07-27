@@ -1,4 +1,4 @@
-.block-scroll{
+.block-scroll {
   overflow: hidden;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .modal-icon-close {
-  fill: currentColor;
+  fill: var(--main-color);
 }
 .recipe-markup {
 }
@@ -91,7 +91,7 @@
   display: flex;
   justify-content: space-between;
   height: 26px;
-  border-bottom: 1px solid rgba(5, 5, 5, 10%)
+  border-bottom: 1px solid rgba(5, 5, 5, 10%);
 }
 
 .modal-recipte-list-measure {
@@ -149,10 +149,74 @@
   width: 133px;
   height: 41px;
   padding: 12px 24px;
-  
 }
 
-.add-favorite-btn, 
+.add-favorite-btn,
 .rating-btn:is(:hover, :focus) {
-  
+}
+
+@media screen and (min-width: 768px) {
+  .modal-recipe {
+    width: 531px;
+    height: 100%;
+    padding: 32px;
+  }
+
+  .close-btn {
+    top: 16px;
+    right: 16px;
+  }
+
+  .recipe-markup {
+  }
+  .modal-recipe-video {
+    width: 467px;
+    height: 250px;
+    margin-top: 16px;
+  }
+
+  .modal-recipe-title {
+    line-height: 1.22;
+    margin-top: 0;
+  }
+
+  .modal-recipe-tags-rating {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .modal-recipe-tags {
+    gap: 4px;
+    margin-top: 0;
+  }
+
+  .recipe-rating-time {
+    margin-top: 8px;
+  }
+
+  .modal-recipe-ingredients {
+    margin-top: 32px;
+  }
+
+  .modal-recipe-text {
+    margin-top: 32px;
+  }
+
+  .modal-btn-active {
+    margin-top: 32px;
+    gap: 16px;
+  }
+
+  .add-favorite-btn {
+    width: 156px;
+    height: 45px;
+    padding: 14px 28px;
+  }
+
+  .rating-btn {
+    width: 141px;
+    height: 45px;
+    padding: 14px 28px;
+  }
 }

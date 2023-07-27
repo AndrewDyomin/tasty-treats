@@ -1,6 +1,6 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
-import openModalRecipeBtn from './recipes-list';
+import { showLoader, hideLoader } from './loader';
 
 const unsplashApi = new UnsplashAPI();
 const refs = {
@@ -29,18 +29,27 @@ async function heardleRecipeById(e) {
   const btnRecipesList = 'recipe-card-button';
   const btnFavorites = 'fav-recipe-card-button';
   const id = click.name;
-  console.log(id);
+  showLoader();
   if (click.className !== btnRecipesList) {
     return;
   } else {
     toggleModal();
   }
-  unsplashApi.endpoint = `/recipes/${id}`;
-  const { data } = await unsplashApi.fetchRecipes();
-  refs.recipeMarkup.innerHTML = markup(data);
+  try {
+    unsplashApi.endpoint = `/recipes/${id}`;
+    const { data } = await unsplashApi.fetchRecipes();
+    if (window.matchMedia('(min-width: 720px)').matches) {
+      refs.recipeMarkup.innerHTML = markupTab(data);
+    } else {
+      refs.recipeMarkup.innerHTML = markupMob(data);
+    }
+    hideLoader();
+  } catch {
+    Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+  }
 }
 
-function markup(data) {
+function markupMob(data) {
   const ingredients = data.ingredients
     .map(ingredient => {
       return `<li class="modal-recipte-list"><span class="modal-recipte-list-ingr">${ingredient.name}</span><span class="modal-recipte-list-measure">${ingredient.measure}</span></li>`;
@@ -75,6 +84,47 @@ function markup(data) {
         </div>
         <ul class="modal-recipe-ingredients">${ingredients}</ul>
         <ul class="modal-recipe-tags">${tags}</ul>
+        <p class="modal-recipe-text">${data.instructions}</p>
+        `;
+}
+
+function markupTab(data) {
+  const ingredients = data.ingredients
+    .map(ingredient => {
+      return `<li class="modal-recipte-list"><span class="modal-recipte-list-ingr">${ingredient.name}</span><span class="modal-recipte-list-measure">${ingredient.measure}</span></li>`;
+    })
+    .join('');
+
+  const tags = data.tags
+    .map(tag => {
+      return `<li class="modal-recipe-tags-list">#${tag}</li>`;
+    })
+    .join('');
+
+  return `
+        <h1 class="modal-recipe-title">${data.title}</h1>
+        <iframe
+        class="modal-recipe-video"
+        width="295"
+        height="295"
+        src="${data.youtube}"
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; 
+        clipboard-write; 
+        encrypted-media; 
+        gyroscope; 
+        picture-in-picture;
+         web-share" allowfullscreen>
+        </iframe>
+        <div class="modal-recipe-tags-rating">
+          <ul class="modal-recipe-tags">${tags}</ul>
+          <div class="recipe-rating-time">
+            <p>${data.rating}</p>
+            <p>${data.time}</p>
+          </div>
+        </div>
+        <ul class="modal-recipe-ingredients">${ingredients}</ul>
         <p class="modal-recipe-text">${data.instructions}</p>
         `;
 }
