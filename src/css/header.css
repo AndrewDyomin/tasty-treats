@@ -69,7 +69,7 @@
 }
 
 .header-order-btn{
-    background-color: white;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;

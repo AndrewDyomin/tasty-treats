@@ -15,9 +15,11 @@ function createRecipesCards (data) {
         for (const recipe of data.results) {
             const markup = 
             `<li class="recipes-list-item">
-              <svg class="favorite-icon">
-                <use href="${svg}#icon-heart"></use>
-              </svg>
+              <button type="button" class="add-to-favorites-btn">
+                <svg class="favorite-icon">
+                  <use href="${svg}#icon-heart"></use>
+                </svg>
+              </button>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
@@ -26,6 +28,7 @@ function createRecipesCards (data) {
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
+            console.log(recipe);
           }
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
@@ -45,7 +48,7 @@ async function reloadRecipesList () {
 reloadRecipesList();
 
 // Изменение отображения количества рецептов в зависимости от ширина вьюпорта
-window.addEventListener('resize', throttle(changeNumberRecipe, 300));
+window.addEventListener('resize', throttle(changeNumberRecipe, 1000));
 
 function changeNumberRecipe () {
     let currentWidth = window.innerWidth;
