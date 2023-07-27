@@ -19,17 +19,7 @@
 .navigation a {
     position: relative;
 }
-/* .navigation a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--btn-color); // Цвет полоски 
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out; 
-}*/
+
 .navigation a:hover::before,
 .navigation a:focus::before {
   transform: scaleX(1);
@@ -100,15 +90,15 @@
     stroke: var(--main-color);
 }
 
-/* .header-switch {
+.header-switch {
     display: none;
-  } */
+  }
   
-  /* .header-switch input {
+  .header-switch input {
     display: none;
-  } */
+  }
   
-  /* .header-slider {
+  .header-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -119,9 +109,9 @@
     transition: 0.4s;
     border-radius: 34px;
     box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
-} */
+}
 
-/* .header-slider:before {
+.header-slider:before {
     position: absolute;
     content: "";
     height: 17px;
@@ -131,9 +121,9 @@
     background-color: var(--secondary-color);
     transition: 0.4s; 
     border-radius: 50%;
-  } */
+  }
   
-  /* .header-switch input:checked + .header-slider {
+  .header-switch input:checked + .header-slider {
     background: linear-gradient(#9BB537, #9BB537);
     box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
   }
@@ -141,7 +131,7 @@
   .header-switch input:checked + .header-slider:before {
     box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
     transform: translateX(26px);
-  } */
+  }
 
 /* Mobile Menu Styles */
 
@@ -212,19 +202,19 @@
     color: var(--main-color);
 }
 
-/* .switch {
+.switch {
     position: absolute;
     width: 46px;
     height: 20px;
     bottom: 30px;
     left: 20px;
-} */
-/* 
+}
+
 .switch input {
     display: none;
-} */
+}
 
-/* .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -246,16 +236,16 @@
     background-color: var(--secondary-color);
     transition: 0.4s;
     border-radius: 50%;
-} */
+}
 
-/* input:checked+.slider {
+input:checked+.slider {
     background: var(--btn-color);
 }
 
 input:checked+.slider:before {
     transform: translateX(26px);
     box-shadow: 4px 4px 15px rgba(243, 243, 243, 0.25);
-} */
+}
 
 .nav-link-active{
     color: var(--btn-color);
@@ -301,14 +291,14 @@ input:checked+.slider:before {
     .mob-menu-btn {
         display: none;
     }
-    /* .header-switch {
+    .header-switch {
         position: relative;
         display: flex;
         width: 47px;
         height: 20px;
         border-radius: 10px;
         box-shadow: 7px 5px 15px 0px #A09EA066;
-    } */
+    }
     .mobile-menu {
         display: none;
     }
