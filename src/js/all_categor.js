@@ -1,4 +1,4 @@
-
+ 
   const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
   const categoriesContainer = document.getElementById('categories');
   const overallButton = document.querySelector('.categorBt');
@@ -38,6 +38,7 @@
     categoryButtons.forEach(button => {
       button.classList.remove('active');
     });
+   
   }
   
   overallButton.addEventListener('click', clearActiveStates);
