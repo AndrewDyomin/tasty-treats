@@ -11,7 +11,9 @@ const ingredientSelectorEl = document.querySelector('#ingredients')
 const searchIconEl = document.querySelector('.search-icon');
 const filterFormEl = document.querySelector('.filter-form');
 const recipesListEl = document.querySelector('.resipes-list');
-const resetBtn = document.querySelector('.rst-btn');
+const resetBtn = document.querySelector('.categorBt');
+// Підключив свій клас кнопки для обнулення фільтрів загальоою кнопкою видаліть будьласка свою зайву кнопку
+
 
 function searchInputChangeHandler(e) {
     e.preventDefault();
@@ -67,5 +69,6 @@ ingredientSelectorEl.addEventListener('change', () => {
     searchRecipes();
 });
 resetBtn.addEventListener('click', clearFilters);
+
 
 
