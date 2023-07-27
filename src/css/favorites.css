@@ -1,22 +1,158 @@
-.container {
+body {
+  font-family: var(--basic-font-family);
+  font-weight: 400;
+}
+
+.fav-container {
   margin: 0 auto;
   padding: 0 16px;
 }
 
-.fav-hero-section {
-  padding-top: 24px;
-  padding-bottom: 40px;
+.fav-hero-pic img {
+  max-height: 516px;
 }
 
-.fav-hero-container {
+.fav-content-section {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+.fav-category-recipe-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
-.fav-hero-pic {
-  height: 516px;
+.category-btn {
+  padding: 14px 18px;
+  border-radius: 15px;
+  background: none;
+  border-color: rgba(5, 5, 5, 0.2);
+  color: rgba(5, 5, 5, 0.3);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.29;
+  font-weight: 500;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-btn:hover,
+.category-btn:focus,
+.category-btn:active {
+  background-color: var(--btn-color);
+  color: var(--secondary-color);
+}
+
+.fav-resipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.fav-recipes-list-item {
+  position: relative;
+}
+
+.fav-recipe-card img {
+  border-radius: 15px;
+}
+
+.recipe-card-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 15px;
+  background-image: linear-gradient(rgba(5, 5, 5, 0), rgba(5, 5, 5, 0.6));
+}
+
+.fav-recipe-card-title {
+  position: absolute;
+  bottom: 103px;
+  left: 16px;
+
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--secondary-color);
+}
+.fav-recipe-card-description {
+  position: absolute;
+  bottom: 63px;
+  left: 16px;
+
+  width: 303px;
+  height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--secondary-color);
+}
+
+.fav-recipe-card-button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 89px;
+  height: 31px;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background-color: var(--btn-color);
+  color: var(--secondary-color);
+  border: inherit;
+  font-size: 12px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fav-recipe-card-button:is(:hover, :focus) {
+  color: var(--main-color);
+}
+
+.favorite-heart-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.add-to-favorite-checkbox:checked > .favorite-icon {
+  fill: #f8f8f8;
+}
+.category-btn.is-hidden,
+.fav-no-recipes-content.is-hidden {
+  display: none;
+}
+
+.fav-no-recipes-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-recipes-icon {
+  width: 68px;
+  height: 58px;
+  margin-bottom: 24px;
+}
+
+.no-resipes-descr {
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 335px;
+
+  text-align: center;
 }
 
 @media screen and (min-width: 375px) {
-  .container {
+  .fav-container {
     width: 375px;
     padding-left: 20px;
     padding-right: 20px;
@@ -24,33 +160,80 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .fav-container {
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  .fav-hero-section {
-    padding-top: 22px;
-    padding-bottom: 64px;
+  .fav-hero-pic img {
+    height: 356px;
   }
 
-  .fav-hero-pic {
-    height: 356px;
+  .fav-content-section {
+    padding-top: 64px;
+    padding-bottom: 319px;
+  }
+
+  .fav-category-recipe-list {
+    gap: 15px;
+    margin-bottom: 32px;
+  }
+
+  .category-btn {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .fav-resipes-list {
+    gap: 16px;
+  }
+
+  .fav-recipe-card img {
+    width: 224px;
+    height: 244px;
+  }
+
+  .fav-recipe-card-description {
+    width: 192px;
+    height: 32px;
+  }
+
+  .no-recipes-icon {
+    width: 97px;
+    height: 83px;
+    margin-bottom: 32px;
+  }
+
+  .no-recipes-descr {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 481px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .container {
+  .fav-container {
     width: 1280px;
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .fav-hero-section {
-    padding-top: 20px;
+  .fav-content-section {
+    padding-bottom: 64px;
   }
 
-  .fav-hero-pic {
+  .fav-resipes-list {
+    gap: 16px;
+    row-gap: 32px;
+  }
+
+  .fav-recipe-card img {
+    width: 258px;
+    height: 287px;
+  }
+
+  .fav-recipe-card-description {
+    width: 226px;
   }
 }

@@ -7,4 +7,38 @@
 @import url('./css/filter.css');
 @import url('./css/modal.css');
 @import url('./css/var.css');
-@import url('./css/all_categori.css')
+@import url('./css/all_categori.css');
+@import url('./css/popular-recipes.css');
+@import url('./css/scrollToTop.css');
+@import url('./css/loader.css');
+@import url('./css/flex-markup.css');
+@import url('./css/modal-recipe.css');
+
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
