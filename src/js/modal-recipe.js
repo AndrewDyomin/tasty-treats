@@ -10,6 +10,7 @@ const refs = {
   addToFavoriteBtn: document.querySelector('.add-favorite-btn'),
   ratingBtn: document.querySelector('.rating-btn'),
   recipeMarkup: document.querySelector('.recipe-markup'),
+  body: document.querySelector('body'),
 };
 
 // refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
@@ -18,6 +19,9 @@ refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden-modal');
+  refs.modal.classList.contains('is-hidden-modal')
+    ? refs.body.classList.remove('block-scroll')
+    : refs.body.classList.add('block-scroll');
 }
 
 async function heardleRecipeById(e) {
@@ -38,13 +42,13 @@ async function heardleRecipeById(e) {
 
 function markup(data) {
   const ingredients = data.ingredients
-    .map((ingredient) => {
+    .map(ingredient => {
       return `<li class="modal-recipte-list"><span class="modal-recipte-list-ingr">${ingredient.name}</span><span class="modal-recipte-list-measure">${ingredient.measure}</span></li>`;
     })
     .join('');
 
   const tags = data.tags
-    .map((tag) => {
+    .map(tag => {
       return `<li class="modal-recipe-tags-list">#${tag}</li>`;
     })
     .join('');

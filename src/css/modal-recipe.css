@@ -1,3 +1,7 @@
+.block-scroll{
+  overflow: hidden;
+}
+
 .backdrop {
   width: 100%;
   height: 100%;
