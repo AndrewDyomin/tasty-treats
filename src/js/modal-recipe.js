@@ -11,17 +11,19 @@ const refs = {
   ratingBtn: document.querySelector('.rating-btn'),
   recipeMarkup: document.querySelector('.recipe-markup'),
   body: document.querySelector('body'),
+  backdrop: document.querySelector('js-backdrop'),
 };
 
-// refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
 refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.modal.addEventListener('click', handleBackdropClick);
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden-modal');
   refs.modal.classList.contains('is-hidden-modal')
     ? refs.body.classList.remove('block-scroll')
     : refs.body.classList.add('block-scroll');
+  window.removeEventListener('keydown', handleEscKeyPress);
 }
 
 async function heardleRecipeById(e) {
@@ -35,6 +37,7 @@ async function heardleRecipeById(e) {
   } else {
     toggleModal();
   }
+  window.addEventListener('keydown', handleEscKeyPress);
   try {
     unsplashApi.endpoint = `/recipes/${id}`;
     const { data } = await unsplashApi.fetchRecipes();
@@ -127,4 +130,17 @@ function markupTab(data) {
         <ul class="modal-recipe-ingredients">${ingredients}</ul>
         <p class="modal-recipe-text">${data.instructions}</p>
         `;
+}
+
+function handleBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    toggleModal();
+  }
+}
+
+function handleEscKeyPress(e) {
+  const ESC_KEY = 'Escape';
+  if (e.code === ESC_KEY) {
+    toggleModal();
+  }
 }
