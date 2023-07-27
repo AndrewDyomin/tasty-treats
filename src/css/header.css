@@ -147,14 +147,14 @@
 /* Mobile Menu Styles */
 
 .mobile-menu {
-    background-color: var(---btn-color);
+    background-color: var(--btn-color);
     height: 100%;
     width: 200px;
     position: fixed;
     z-index: 999;
     top: 0;
     right: 0;
-    transform: translateX(-100%);
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
 }
 
