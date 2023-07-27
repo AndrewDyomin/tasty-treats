@@ -31,12 +31,12 @@ async function heardleRecipeById(e) {
   const btnRecipesList = 'recipe-card-button';
   const btnFavorites = 'fav-recipe-card-button';
   const id = click.name;
-  showLoader();
   if (click.className !== btnRecipesList) {
     return;
   } else {
     toggleModal();
   }
+  showLoader();
   window.addEventListener('keydown', handleEscKeyPress);
   try {
     unsplashApi.endpoint = `/recipes/${id}`;
