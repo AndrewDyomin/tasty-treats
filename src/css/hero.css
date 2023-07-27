@@ -22,11 +22,11 @@
   }
 }
 
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1280px) {
   .hero-container {
     display: flex;
     gap: 32px;
-    min-width: 1140px;
+    min-width: 1280px;
     margin: 0 auto;
     padding: 0 0 0 100px;
   }
@@ -40,7 +40,7 @@
     padding-right: 290px;
   }
 }
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1280px) {
   .event-discription {
     margin-top: auto;
     margin-bottom: auto;
@@ -109,7 +109,7 @@
     margin-bottom: 64px;
   }
 }
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1280px) {
   .order-btn {
     margin-bottom: 0;
   }

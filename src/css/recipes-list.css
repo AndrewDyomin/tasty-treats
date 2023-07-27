@@ -195,7 +195,7 @@
   .recipe-section {
     width: 496px;
     padding: 0 0 100px 0;
-    margin: auto;
+    margin-left: auto;
   }
 
   .recipe-container {
@@ -254,7 +254,7 @@
   }
 }
 
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1280px) {
   .recipe-section {
     width: 782px;
     padding: 0 0 100px 0;
