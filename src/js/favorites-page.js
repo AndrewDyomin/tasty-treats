@@ -2,6 +2,7 @@ import './scroll-to-top';
 import svg from '../images/sprite.svg';
 // import './modal-recipe';
 import './mob-menu';
+import './theme-switcher';
 
 const heroPicture = document.querySelector('.fav-hero-pic');
 const categoryRecipeList = document.querySelector('.fav-category-recipe-list')
@@ -111,8 +112,6 @@ function createFavoriteRecipesCards(recipes) {
     }
 }
     
-
-
 
 
 
