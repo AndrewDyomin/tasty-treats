@@ -1,6 +1,6 @@
 import './scroll-to-top';
 import svg from '../images/sprite.svg';
-import './modal-recipe';
+// import './modal-recipe';
 import './mob-menu';
 
 const heroPicture = document.querySelector('.fav-hero-pic');
