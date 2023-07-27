@@ -57,7 +57,7 @@
 }
 
 .modal-icon-close {
-  fill: var(--main-color);
+  stroke: currentColor;
 }
 .recipe-markup {
 }
