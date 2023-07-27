@@ -9,6 +9,7 @@ body {
 }
 
 .fav-hero-pic img {
+  margin-top: 50px;
   max-height: 516px;
 }
 
@@ -221,6 +222,9 @@ body {
 
   .fav-content-section {
     padding-bottom: 64px;
+  }
+  .fav-hero-pic img {
+    margin-top: 40px;
   }
 
   .fav-resipes-list {
