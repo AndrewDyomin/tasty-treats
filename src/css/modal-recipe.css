@@ -86,6 +86,8 @@
 .modal-recipte-list {
   display: flex;
   justify-content: space-between;
+  height: 26px;
+  border-bottom: 1px solid rgba(5, 5, 5, 10%)
 }
 
 .modal-recipte-list-measure {
@@ -101,6 +103,7 @@
 
 .modal-recipe-tags-list {
   border: 1px solid rgba(5, 5, 5, 0.2);
+  padding: 8px 16px;
   border-radius: 35px;
   height: 30px;
   width: auto;
