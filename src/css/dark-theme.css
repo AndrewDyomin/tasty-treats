@@ -2,81 +2,76 @@
 
 /** Body **/
 
-body.dark-theme{
-    background-color: var(#161616);
+body.dark-theme {
+  background-color: var(--main-color);
 }
-
-
 
 /** Header **/
 
-.dark-theme .logo-second{
-    color: var(#fff);
+.dark-theme .logo-second {
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .header-nav-links{
-    color: #fff;
+.dark-theme .header-nav-links {
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .shopping-icon-use{
-    fill: var(--main-color);
-    stroke: var(#fff);
+.dark-theme .shopping-icon-use {
+  fill: var(--main-color);
+  stroke: var(--dark-theme-color-text);
 }
 
 .dark-theme .mobile-menu-icon {
-    stroke: var(#fff);
+  stroke: var(--dark-theme-color-text);
 }
 
-.dark-theme .mobile-menu{
-    background-color: var(--main-color);
+.dark-theme .mobile-menu {
+  background-color: var(--main-color);
 }
 
 /** Hero **/
 
-.dark-theme .event-title{
-    color: var(#fff);
+.dark-theme .event-title {
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .event-text{
-    color: var(#fff);
+.dark-theme .event-text {
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .event-order{
-    background-color: transparent;
-    color: var(#fff);
+.dark-theme .event-order {
+  background-color: transparent;
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .modal-window{
-    background-color: var(--main-color);
+.dark-theme .modal-window {
+  background-color: var(--main-color);
 }
 
-.dark-theme .modal-title{
-    color: #fff;
+.dark-theme .modal-title {
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .form-modal{
-    color: rgba(255, 255, 255, 0.5);
+.dark-theme .form-modal {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.dark-theme .input{
-    background-color: transparent;
-    color: #fff;
+.dark-theme .input {
+  background-color: transparent;
+  color: var(--dark-theme-color-text);
 }
 
-.dark-theme .comment{
-    background-color: transparent;
-    color: #fff;
+.dark-theme .comment {
+  background-color: transparent;
+  color: var(--dark-theme-color-text);
 }
 
 /** All categories **/
 
-
-
 /** Scroll to top **/
 
-.dark-theme .btn-up{
-    fill: var(#fff);
+.dark-theme .btn-up {
+  fill: var(--dark-theme-color-text);
 }
-
 
 /** Favorites **/
