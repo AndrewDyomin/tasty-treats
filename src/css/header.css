@@ -239,7 +239,7 @@
 }
 
 input:checked+.slider {
-    background: var(--btn-color);
+    background: var(--main-color);
 }
 
 input:checked+.slider:before {
