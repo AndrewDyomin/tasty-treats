@@ -1,4 +1,6 @@
 .popular-recipes-block {
+  padding-top: 40px;
+  padding-left: 16px;
   width: 332px;
 }
 
@@ -60,12 +62,13 @@
 }*/
 
 @media screen and (min-width: 768px) {
-  
-  .popular-recipes-heading {
+  .popular-recipes-block {
+    padding-top: 64px;
+    padding-left: 0;
     width: 166px;
   }
 
-  .popular-recipes-block {
+  .popular-recipes-heading {
     width: 166px;
   }
 
