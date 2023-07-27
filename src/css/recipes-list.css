@@ -145,6 +145,7 @@
   height: 22px;
   stroke: #f8f8f8;
   fill: none;
+  cursor: pointer;
 }
 
 .favorite-icon:is(:hover, :focus) {

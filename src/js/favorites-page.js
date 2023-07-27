@@ -1,4 +1,5 @@
 import './scroll-to-top';
+import svg from '../images/sprite.svg';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { UnsplashAPI } from './api';
@@ -20,7 +21,7 @@ const localStorageKey = "favorites"
 displayFavoriteResipes(localStorageKey); //favorites - це ім'я ключа на localStorage, куди додаватимуться позначені рецепти 
 console.log(localStorage.getItem(localStorageKey));
 function displayFavoriteResipes(key) {
-    if (localStorage.getItem(key) === "") {
+    if (localStorage.getItem(key) === null) {
         
         noFavoriteRecipesMessage.classList.remove('is-hidden');
         
@@ -71,40 +72,20 @@ function createFavoriteRecipesCards(recipes) {
 
     for (const recipe of recipes) {
         const recipeCard = `<li class="fav-recipes-list-item">
-            <svg class="favorite-heart-icon">
-                <use href="/src/images/sprite.svg#icon-heart-checked"></use>
-            </svg>                 
+                      
         <div class="recipe-card-gradient"></div>      
         <div class="fav-recipe-card">
+         <span  class="add-to-favorite-checkbox" role="checkbox" aria-checked="true">  
+        <svg class="favorite-icon">
+                <use href="${svg}#icon-heart"></use>
+              </svg> 
+        </span> 
             <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
             <p class="fav-recipe-card-title">${recipe.title}</p>
             <p class="fav-recipe-card-description">${recipe.description}</p>
             <button type="button" class="fav-recipe-card-button" name="${recipe._id}" data-modal-recipe-open>See recipe</button>
-        </div>
-
-        
+        </div>      
         </li>`;
-         
-    
-        //     const recipeCard = `<div class="recipe-card">
-         
-        //     <a class="recipe-card-link" href="#">
-        //         <img class ="recipe-card-img" src="${recipes.preview}" alt="${recipes.description}" loading="lazy" />
-            
-        //     <div class="info">
-        //         <h2 class="fav-recipe-title">${recipes.title}</h2>
-        //         <p class="fav-recipe-descr">${recipes.description}</p>  
-        //         <p class="fav-recipe-rating">Rating: ${recipes.rating}</p>
-                        
-        //     </div>
-
-        //     <button type="button" class="add-to-favorite-btn">
-        //     <svg class="favorite-icon">
-        //                 <use href="./images/sprite.svg#icon-heart-checked"></use>
-        //             </svg>
-        //     </button>
-        //     </a>
-        // </div>`;
         favoriteRecipesList.insertAdjacentHTML('beforeend', recipeCard);
     }
 }
