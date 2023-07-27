@@ -6,11 +6,9 @@ export class UnsplashAPI {
 endpoint = '';
 currentPage = 1;
 itemsPerPage = 9;
-time;
-area;
-ingredient;
-
-
+time = null;
+area = null;
+ingredient = null;
   
 async fetchRecipes() {
   return await axios.get(`${this.#BASE_URL}${this.endpoint}`, {

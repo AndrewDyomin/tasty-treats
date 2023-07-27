@@ -37,7 +37,6 @@ let currentTotalPages = null;
 async function reloadRecipesList () {
   unsplashApi.endpoint = '/recipes';
   const { data } = await unsplashApi.fetchRecipes();
-  // console.log(data)
   currentTotalPages = data.totalPages;
   createRecipesCards(data);
   return data;
