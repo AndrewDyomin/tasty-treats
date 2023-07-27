@@ -13,6 +13,7 @@
 @import url('./css/loader.css');
 @import url('./css/flex-markup.css');
 @import url('./css/modal-recipe.css');
+@import url('./css/dark-theme.css');
 
 .container {
   margin: 0 auto;
@@ -41,4 +42,8 @@
     padding-left: 100px;
     padding-right: 100px;
   }
+}
+
+body {
+  background-color: var(--secondary-color);
 }

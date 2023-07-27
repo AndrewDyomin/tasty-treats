@@ -1,6 +1,7 @@
 body {
   font-family: var(--basic-font-family);
   font-weight: 400;
+  /* background-color: var(--secondary-color); */
 }
 
 .fav-container {
@@ -10,6 +11,7 @@ body {
 
 .fav-hero-pic img {
   max-height: 516px;
+  border-radius: 15px;
 }
 
 .fav-content-section {
