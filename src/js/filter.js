@@ -33,8 +33,6 @@ const searchRecipes = async () => {
     try {
         const { data } = await unsplashApi.fetchRecipes();
         createRecipesCards(data);
-        console.log(data)
-    
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
     }
@@ -42,15 +40,63 @@ const searchRecipes = async () => {
 
 function clearFilters() {
     searchInputEl.value = null;
-    timeSelectorEl.value = '10';
-    areaSelectorEl.value = 'french';
-    ingredientSelectorEl.value = 'cabbage';
     unsplashApi.searchQuerry = null;
     unsplashApi.queryTime = null;
     unsplashApi.queryArea = null;
     unsplashApi.queryIngredient = null;
     reloadRecipesList();
 }
+
+function createRecipesTimeOptions () {
+    try {
+        for (let time = 5; time <= 120; time += 5) {
+            const markup = `<option value="${time}">${time} min</option>`;
+            timeSelectorEl.insertAdjacentHTML("beforeend", markup);
+          }
+    } catch (err) {
+        Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+    }
+}
+
+createRecipesTimeOptions ();
+
+function createRecipesIngredientOptions (data) {
+    try {
+        for (const option of data) {
+            const markup = `<option value="${option._id}">${option.name}</option>`;
+            ingredientSelectorEl.insertAdjacentHTML("beforeend", markup);
+          }
+    } catch (err) {
+        Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+    }
+}
+
+async function fetchRecipesIngredientOptions () {
+    unsplashApi.endpoint = '/ingredients';
+    let { data } = await unsplashApi.fetchRecipes();
+    createRecipesIngredientOptions(data);
+};
+
+fetchRecipesIngredientOptions();
+
+function createRecipesAreaOptions (data) {
+    try {
+        for (const option of data) {
+            const markup = `<option value="${option.name}">${option.name}</option>`;
+            areaSelectorEl.insertAdjacentHTML("beforeend", markup);
+          }
+    } catch (err) {
+        Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+    }
+}
+
+async function fetchRecipesAreaOptions () {
+    unsplashApi.endpoint = '/areas';
+    let { data } = await unsplashApi.fetchRecipes();
+    createRecipesAreaOptions(data);
+};
+
+fetchRecipesAreaOptions();
 
 searchInputEl.addEventListener('input', _.debounce(searchInputChangeHandler, 300));
 filterFormEl.addEventListener('submit', searchInputChangeHandler);
