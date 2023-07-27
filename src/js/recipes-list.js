@@ -53,7 +53,7 @@ function changeNumberRecipe () {
         NUMB_PAGE_IN_MENU = 2;
         unsplashApi.itemsPerPage = 6;
         reloadRecipesList();
-    } else if (currentWidth >= 768 && currentWidth < 1140) {
+    } else if (currentWidth >= 768 && currentWidth < 1280) {
         unsplashApi.itemsPerPage = 8;
         reloadRecipesList();
         NUMB_PAGE_IN_MENU = 3;
