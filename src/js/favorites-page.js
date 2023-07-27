@@ -1,34 +1,49 @@
 import './scroll-to-top';
 import svg from '../images/sprite.svg';
-import axios from 'axios';
-import Notiflix from 'notiflix';
-import { UnsplashAPI } from './api';
-// import {showLoader, hideLoader } from './loader';
-// import { createRecipesCards } from './recipes-list'
-
 
 const heroPicture = document.querySelector('.fav-hero-pic');
 const categoryRecipeList = document.querySelector('.fav-category-recipe-list')
 const favoriteRecipesList = document.querySelector('.fav-resipes-list');
 const noFavoriteRecipesMessage = document.querySelector('.fav-no-recipes-content');
-const categoryFilters = document.querySelector('.category-btn'); 
+const categoryAllFilters = document.querySelector('.all-category-btn'); 
+
 
 const localStorageKey = "favorites"
 
 //----------------------------------------------------------------------------------------------
 
 
-displayFavoriteResipes(localStorageKey); //favorites - це ім'я ключа на localStorage, куди додаватимуться позначені рецепти 
-console.log(localStorage.getItem(localStorageKey));
+displayFavoriteResipes(localStorageKey); //favorites - це ім'я ключа на localStorage, куди додаватимуться позначені рецепти
+filterRecipesByCategoryBtn();
+
+
+
+function filterRecipesByCategoryBtn() {
+    const categoryFilters = document.querySelectorAll('.category-btn'); 
+    const dataFromLocalStorage = JSON.parse(localStorage.getItem(localStorageKey))
+
+    for (const filter of categoryFilters) {
+    
+        filter.addEventListener('click', (event) => {     
+            const filteredRecipes = dataFromLocalStorage.filter(recipe => recipe.category === event.target.textContent);
+            createFavoriteRecipesCards(filteredRecipes);
+
+            if (event.target.textContent === "All categories") {
+                createFavoriteRecipesCards(dataFromLocalStorage);    
+            }
+        })
+    }
+}
+
 function displayFavoriteResipes(key) {
-    if (localStorage.getItem(key) === null) {
-        
-        noFavoriteRecipesMessage.classList.remove('is-hidden');
-        
+
+    if (localStorage.getItem(key) === null) {        
+        noFavoriteRecipesMessage.classList.remove('is-hidden');        
     }
     
     noFavoriteRecipesMessage.classList.add('is-hidden')
-    
+
+    createFavoriteRecipesCategories(JSON.parse(localStorage.getItem(key)));
     createFavoriteRecipesCards(JSON.parse(localStorage.getItem(key)));
 }
 
@@ -47,26 +62,30 @@ function displayResizeHandler() {
     })
 }
 
-
-function createFavoriteRecipesCards(recipes) {
-    console.log(recipes);
+function createFavoriteRecipesCategories(recipes) { 
     if (recipes === null) {
         displayResizeHandler();
-        categoryFilters.classList.add('is-hidden');
+        categoryAllFilters.classList.add('is-hidden');
         noFavoriteRecipesMessage.classList.remove('is-hidden');
         return;
     }
 
-    const recipeCategories = recipes.flatMap(recipe => recipe.category)
+     const recipeCategories = recipes.flatMap(recipe => recipe.category)
         .filter((category, index, array) => array.indexOf(category) === index);
-    console.log(recipeCategories);
-    
-    
-
+          
     for (const category of recipeCategories) {
         const categoryBtn = `<button type="button" class="category-btn">${category}</button>`;
         categoryRecipeList.insertAdjacentHTML('beforeend', categoryBtn);
     }
+}
+
+function createFavoriteRecipesCards(recipes) {
+    if (recipes === null) {
+        displayResizeHandler();
+        categoryAllFilters.classList.add('is-hidden');
+        noFavoriteRecipesMessage.classList.remove('is-hidden');
+        return;
+    }   
 
     favoriteRecipesList.innerHTML = '';
 
@@ -90,6 +109,8 @@ function createFavoriteRecipesCards(recipes) {
     }
 }
     
+
+
 
 
 
