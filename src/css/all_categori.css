@@ -1,12 +1,10 @@
 #categories{
-    /* width: 235px;
- height: 416px; */
+    
  overflow: scroll;
 }
-/* #categories li{
-    padding-bottom: 24px;
 
-} */
+
+
 #categories  button{
    height: 100%;
       width: 100%;
