@@ -1,6 +1,8 @@
 import { UnsplashAPI } from "./api";
 import Notiflix from "notiflix";
-import svg from "../images/sprite.svg"
+import svg from "../images/sprite.svg";
+import './theme-switcher';
+import './mob-menu';
 
 const unsplashApi = new UnsplashAPI;
 const dataFromLocalStorage = localStorage.getItem("listOfFavoriteRecipe")
