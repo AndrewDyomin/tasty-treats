@@ -148,7 +148,8 @@
   cursor: pointer;
 }
 
-.favorite-icon:is(:hover, :focus) {
+.favorite-icon:is(:hover, :focus),
+.choseRecipe {
   fill: #f8f8f8;
 }
 
