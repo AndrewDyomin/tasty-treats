@@ -1,11 +1,23 @@
 import { UnsplashAPI } from "./api";
 import Notiflix from "notiflix";
 import svg from "../images/sprite.svg"
+import {heardleRecipeById} from './modal-recipe'
 
 const unsplashApi = new UnsplashAPI;
 const dataFromLocalStorage = localStorage.getItem("listOfFavoriteRecipe")
 const listOfFavItems = JSON.parse(dataFromLocalStorage);
 const favList = document.querySelector('.fav-resipes-list');
+
+//Open Modal
+favList.addEventListener('click', openModalBtn);
+
+function openModalBtn(e) {
+  const btnRecipesBtn = 'fav-recipe-card-button';
+  const id = e.target.name;
+  if (e.target.className === btnRecipesBtn) {
+    heardleRecipeById(id);
+  }
+}
 
 function download() {
     for (let item in listOfFavItems) {
