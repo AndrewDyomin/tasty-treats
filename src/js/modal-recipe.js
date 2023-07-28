@@ -28,7 +28,7 @@ function toggleModal() {
 
 export async function heardleRecipeById(id) {
   toggleModal();
-  showLoader();
+  // showLoader();
   window.addEventListener('keydown', handleEscKeyPress);
   try {
     unsplashApi.endpoint = `/recipes/${id}`;
@@ -41,7 +41,7 @@ export async function heardleRecipeById(id) {
   } catch {
     Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
   } finally {
-    hideLoader();
+    // hideLoader();
   }
 }
 
