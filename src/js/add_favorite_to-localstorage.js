@@ -1,4 +1,4 @@
-const refs = {
+export const refs = {
     recipeList: document.querySelector('.resipes-list'),
     LOCALSTORAGE_KEY: "listOfFavoriteRecipe",
 }
@@ -14,10 +14,10 @@ function clickOnSvg(e) {
     if (btnSvg.id !== 'iconUse') {
         return;
     }
-    console.log('Done!', btnSvg);
-    console.log(btnSvg.closest("li").id);
-    data[btnSvg.closest("li").id] = btnSvg.closest("li").id;
+    if (data[btnSvg.closest("li").id] !== btnSvg.closest("li").id) {
+        data[btnSvg.closest("li").id] = btnSvg.closest("li").id;
     addDataToLocalStorage();
+    };
     if (btnSvg.style.fill !== "rgb(248, 248, 248)") {
         return btnSvg.style.fill = "#f8f8f8";
         
