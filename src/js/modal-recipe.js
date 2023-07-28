@@ -63,7 +63,7 @@ function markupMob(data) {
         class="modal-recipe-video"
         width="295"
         height="295"
-        src="${data.youtube}"
+        src="${data.youtube.replace('watch?v=', 'embed/')}"
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; 
