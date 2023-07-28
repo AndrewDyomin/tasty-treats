@@ -68,6 +68,20 @@ body.dark-theme {
 
 /** All categories **/
 
+/** Popular recipes **/
+
+.dark-theme .popular-recipes-heading {
+  color: var(--dark-theme-color-text);
+}
+
+.dark-theme .recip-heading {
+  color: var(--dark-theme-color-text);
+}
+
+.dark-theme .recip-short-descr {
+  color: var(--dark-theme-color-text);
+}
+
 /** Scroll to top **/
 
 .dark-theme .btn-up {
