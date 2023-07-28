@@ -6,8 +6,16 @@ const unsplashApi = new UnsplashAPI;
 const dataFromLocalStorage = localStorage.getItem("listOfFavoriteRecipe")
 const listOfFavItems = JSON.parse(dataFromLocalStorage);
 const favList = document.querySelector('.fav-resipes-list');
+const noFavoriteRecipesMessage = document.querySelector('.fav-no-recipes-content');
+
 
 function download() {
+  if (listOfFavItems === null) {
+   noFavoriteRecipesMessage.classList.remove('is-hidden');  
+    return;
+}
+  noFavoriteRecipesMessage.classList.add('is-hidden');
+  
     for (let item in listOfFavItems) {
         reloadRecipesList(item);
     };
@@ -16,7 +24,8 @@ download();
 
 async function reloadRecipesList (item) {
     unsplashApi.endpoint = `/recipes/${item}`;
-    const { data } = await unsplashApi.fetchRecipes();
+  const { data } = await unsplashApi.fetchRecipes();
+  
     createRecipesCards(data);
 };
 
