@@ -1,7 +1,11 @@
 body {
   font-family: var(--basic-font-family);
   font-weight: 400;
-  /* background-color: var(--secondary-color); */
+  background-color: var(--secondary-color);
+}
+
+body.dark-theme {
+  color: var(--secondary-color);
 }
 
 .fav-container {
