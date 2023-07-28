@@ -2,9 +2,22 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 import throttle from 'lodash.throttle'
 import svg from '../images/sprite.svg';
+import { heardleRecipeById } from './modal-recipe';
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
+
+//Open Modal
+recipesListEl.addEventListener('click', openModalBtn);
+
+function openModalBtn(e) {
+  const btnRecipesList = 'recipe-card-button';
+  const id = e.target.name;
+  if (e.target.className === btnRecipesList) {
+    heardleRecipeById(id);
+  }
+}
+
 
 //константы
 let NUMB_PAGE_IN_MENU = 3;
@@ -14,10 +27,11 @@ function createRecipesCards (data) {
         recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
-            `<li class="recipes-list-item">
-              <svg class="favorite-icon">
-                <use href="${svg}#icon-heart"></use>
-              </svg>
+              `<li class="recipes-list-item" id="${recipe._id}">
+                    
+                <svg class="favorite-icon">
+                  <use id="iconUse" href="${svg}#icon-heart"></use>
+                </svg>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
@@ -45,7 +59,7 @@ async function reloadRecipesList () {
 reloadRecipesList();
 
 // Изменение отображения количества рецептов в зависимости от ширина вьюпорта
-window.addEventListener('resize', throttle(changeNumberRecipe, 300));
+window.addEventListener('resize', throttle(changeNumberRecipe, 1000));
 
 function changeNumberRecipe () {
     let currentWidth = window.innerWidth;
@@ -53,7 +67,7 @@ function changeNumberRecipe () {
         NUMB_PAGE_IN_MENU = 2;
         unsplashApi.itemsPerPage = 6;
         reloadRecipesList();
-    } else if (currentWidth >= 768 && currentWidth < 1140) {
+    } else if (currentWidth >= 768 && currentWidth < 1280) {
         unsplashApi.itemsPerPage = 8;
         reloadRecipesList();
         NUMB_PAGE_IN_MENU = 3;

@@ -1,5 +1,9 @@
 import './scroll-to-top';
 import svg from '../images/sprite.svg';
+// import './modal-recipe';
+import './mob-menu';
+import './theme-switcher';
+import {heardleRecipeById} from './modal-recipe'
 
 const heroPicture = document.querySelector('.fav-hero-pic');
 const categoryRecipeList = document.querySelector('.fav-category-recipe-list')
@@ -9,6 +13,17 @@ const categoryAllFilters = document.querySelector('.all-category-btn');
 
 
 const localStorageKey = "favorites"
+
+//Open Modal
+favoriteRecipesList.addEventListener('click', openModalBtn);
+
+function openModalBtn(e) {
+  const btnRecipesBtn = 'fav-recipe-card-button';
+  const id = e.target.name;
+  if (e.target.className === btnRecipesBtn) {
+    heardleRecipeById(id);
+  }
+}
 
 //----------------------------------------------------------------------------------------------
 
@@ -109,8 +124,6 @@ function createFavoriteRecipesCards(recipes) {
     }
 }
     
-
-
 
 
 

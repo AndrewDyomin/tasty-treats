@@ -26,6 +26,7 @@
 }
 
 .search-input {
+  background-color: transparent;
   color: rgba(5, 5, 5, 0.5);
   font-family: 'Inter';
   font-size: 14px;
@@ -145,7 +146,7 @@ option {
   }
 }
 
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: 1280px) {
   .filter-form-list {
     align-items: center;
     justify-content: start;
