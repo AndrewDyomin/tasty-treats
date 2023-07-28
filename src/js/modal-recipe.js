@@ -14,7 +14,7 @@ const refs = {
   backdrop: document.querySelector('js-backdrop'),
 };
 
-refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
+
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.modal.addEventListener('click', handleBackdropClick);
 
@@ -26,16 +26,8 @@ function toggleModal() {
   window.removeEventListener('keydown', handleEscKeyPress);
 }
 
-async function heardleRecipeById(e) {
-  const click = e.target;
-  const btnRecipesList = 'recipe-card-button';
-  const btnFavorites = 'fav-recipe-card-button';
-  const id = click.name;
-  if (click.className !== btnRecipesList) {
-    return;
-  } else {
-    toggleModal();
-  }
+export async function heardleRecipeById(id) {
+  toggleModal();
   showLoader();
   window.addEventListener('keydown', handleEscKeyPress);
   try {
@@ -46,9 +38,10 @@ async function heardleRecipeById(e) {
     } else {
       refs.recipeMarkup.innerHTML = markupMob(data);
     }
-    hideLoader();
   } catch {
     Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+  } finally {
+    hideLoader();
   }
 }
 
