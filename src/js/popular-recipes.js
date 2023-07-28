@@ -1,8 +1,19 @@
 import axios from 'axios';
+import { heardleRecipeById } from './modal-recipe';
 export const popularRecipList = document.querySelector('.popular-recipes-list');
 
 const BASE_URL =
   'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
+
+//Open Modal 
+popularRecipList.addEventListener('click', openModalRecipe);
+
+function openModalRecipe(e) {
+  if (e.target.nodeName !== 'UL') {
+    const id = e.target.closest('li').id;
+    heardleRecipeById(id);
+  } 
+} 
 
 export async function getPopularRecip() {
   try {
