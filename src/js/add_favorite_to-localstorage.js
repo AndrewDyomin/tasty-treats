@@ -3,11 +3,13 @@ export const refs = {
     LOCALSTORAGE_KEY: "listOfFavoriteRecipe",
 }
 
-const data = {};
+let data = {};
+let dataLocalStorage = localStorage.getItem("listOfFavoriteRecipe")
+let listOfLocal = JSON.parse(dataLocalStorage);
 
 refs.recipeList.addEventListener('click', clickOnSvg);
 
-
+// Добавление в localstorage
 
 function clickOnSvg(e) {
     const btnSvg = e.target;
@@ -17,15 +19,20 @@ function clickOnSvg(e) {
     if (data[btnSvg.closest("li").id] !== btnSvg.closest("li").id) {
         data[btnSvg.closest("li").id] = btnSvg.closest("li").id;
     addDataToLocalStorage();
-    };
+    } 
+    
     if (btnSvg.style.fill !== "rgb(248, 248, 248)") {
         return btnSvg.style.fill = "#f8f8f8";
-        
     } else {
         return btnSvg.style.fill = "none";
     }
 }
 
 function addDataToLocalStorage() {
-    localStorage.setItem(refs.LOCALSTORAGE_KEY, JSON.stringify(data));
+    if (!listOfLocal) {
+        localStorage.setItem(refs.LOCALSTORAGE_KEY, JSON.stringify(data));
+    } else {
+        data = listOfLocal;
+        localStorage.setItem(refs.LOCALSTORAGE_KEY, JSON.stringify(data));
+    }
 }
