@@ -18,15 +18,16 @@ function clickOnSvg(e) {
     }
     if (data[btnSvg.closest("li").id] !== btnSvg.closest("li").id) {
         data[btnSvg.closest("li").id] = btnSvg.closest("li").id;
-    addDataToLocalStorage();
-    } 
-    
-    if (btnSvg.style.fill !== "rgb(248, 248, 248)") {
-        return btnSvg.style.fill = "#f8f8f8";
-    } else {
-        return btnSvg.style.fill = "none";
+        addDataToLocalStorage();
     }
-}
+
+    if (btnSvg.style.fill !== "rgb(248, 248, 248)") {
+        btnSvg.style.fill = "#f8f8f8";
+    } else {
+        btnSvg.style.fill = "none";
+    }
+};
+
 
 function addDataToLocalStorage() {
     if (!listOfLocal) {
@@ -36,3 +37,4 @@ function addDataToLocalStorage() {
         localStorage.setItem(refs.LOCALSTORAGE_KEY, JSON.stringify(data));
     }
 }
+

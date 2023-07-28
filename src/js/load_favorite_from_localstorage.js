@@ -10,6 +10,8 @@ const unsplashApi = new UnsplashAPI;
 const dataFromLocalStorage = localStorage.getItem("listOfFavoriteRecipe")
 const listOfFavItems = JSON.parse(dataFromLocalStorage);
 const favList = document.querySelector('.fav-resipes-list');
+const newDataStorage = {};
+const LOCALSTORAGE_KEY = "listOfFavoriteRecipe";
 const noFavoriteRecipesMessage = document.querySelector('.fav-no-recipes-content');
 const heroPicture = document.querySelector('.fav-hero-pic');
 
@@ -48,10 +50,10 @@ async function reloadRecipesList (item) {
 function createRecipesCards (data) {
     try {
             const markup = 
-            `<li class="fav-recipes-list-item"">
+            `<li class="fav-recipes-list-item" id="${data._id}">
             <div class="recipe-card-gradient"></div>
-                <svg class="favorite-icon">
-                  <use id="iconUse" href="${svg}#icon-heart"></use>
+                <svg class="favorite-icon" >
+                  <use id="iconUse" fill="#f8f8f8"; href="${svg}#icon-heart"></use>
                 </svg>
               <div class="fav-recipe-card">
                 <img src="${data.preview}" alt="${data.description}" loading="lazy" />
@@ -66,6 +68,23 @@ function createRecipesCards (data) {
     }
 }
 
+favList.addEventListener('click', removeFavRecipe);
+
+function removeFavRecipe(e) {
+  const iconBtn = e.target;
+  if (iconBtn.id !== 'iconUse') {
+        return;
+    }
+  const recipeId = e.target.closest("li").id;
+  for (let item in listOfFavItems) {
+    if (item !== recipeId) {
+      newDataStorage[item] = item;
+    }
+  }
+  iconBtn.style.fill = "none";
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(newDataStorage));
+  location.reload();
+  
 function displayResizeHandler() {
     if (window.innerWidth < 768) {
         heroPicture.style.display = "none";
