@@ -27,7 +27,7 @@ function createMarkUp(data) {
           ? description.substring(0, MAX_LENGTH - 3) + '...'
           : description;
 
-      return `<li class="recip-item" id="${_id}">
+      return `<li class="recip-item" name="${_id}">
           <img class="recip-img" src="${preview}" alt="${title}" width="64"/>
           <div class="recip-content">
             <h3 class="recip-heading">${title}</h3>
