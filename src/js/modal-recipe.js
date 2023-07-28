@@ -1,6 +1,6 @@
 import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
-import { showLoader, hideLoader } from './loader';
+import {data, addDataToLocalStorage} from './add_favorite_to-localstorage'
 
 const unsplashApi = new UnsplashAPI();
 const refs = {
@@ -17,6 +17,7 @@ const refs = {
 
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.modal.addEventListener('click', handleBackdropClick);
+// refs.addToFavoriteBtn.addEventListener('click', addToLocalStorage)
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden-modal');
@@ -30,6 +31,7 @@ export async function heardleRecipeById(id) {
   toggleModal();
   // showLoader();
   window.addEventListener('keydown', handleEscKeyPress);
+  refs.addToFavoriteBtn.setAttribute('name', `${id}`)
   try {
     unsplashApi.endpoint = `/recipes/${id}`;
     const { data } = await unsplashApi.fetchRecipes();
