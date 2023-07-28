@@ -7,11 +7,12 @@ const dataFromLocalStorage = localStorage.getItem("listOfFavoriteRecipe")
 const listOfFavItems = JSON.parse(dataFromLocalStorage);
 const favList = document.querySelector('.fav-resipes-list');
 const noFavoriteRecipesMessage = document.querySelector('.fav-no-recipes-content');
-
+const heroPicture = document.querySelector('.fav-hero-pic');
 
 function download() {
   if (listOfFavItems === null) {
-   noFavoriteRecipesMessage.classList.remove('is-hidden');  
+    displayResizeHandler();
+    noFavoriteRecipesMessage.classList.remove('is-hidden');  
     return;
 }
   noFavoriteRecipesMessage.classList.add('is-hidden');
@@ -48,4 +49,18 @@ function createRecipesCards (data) {
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
     }
+}
+
+function displayResizeHandler() {
+    if (window.innerWidth < 768) {
+        heroPicture.style.display = "none";
+    }
+    else heroPicture.style.display = "";
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 768) {            
+            heroPicture.style.display = "none";
+        }
+        else heroPicture.style.display = "";
+    })
 }
