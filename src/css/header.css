@@ -5,7 +5,10 @@
     --trns-general: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --animate: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+  .no-scroll {
+    overflow: hidden;
+  }
+  
 .header{
     padding-top: 24px;
 }
