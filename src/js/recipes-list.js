@@ -15,8 +15,8 @@ function createRecipesCards (data) {
         for (const recipe of data.results) {
             const markup = 
             `<li class="recipes-list-item">        
-                <svg class="favorite-icon">
-                  <use href="${svg}#icon-heart"></use>
+                <svg class="favorite-icon" name="${recipe._id}">
+                  <use id="iconUse" href="${svg}#icon-heart"></use>
                 </svg>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
@@ -26,7 +26,6 @@ function createRecipesCards (data) {
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
-            console.log(recipe);
           }
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
