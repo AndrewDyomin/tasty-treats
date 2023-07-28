@@ -2,9 +2,22 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 import throttle from 'lodash.throttle'
 import svg from '../images/sprite.svg';
+import { heardleRecipeById } from './modal-recipe';
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
+
+//Open Modal
+recipesListEl.addEventListener('click', openModalBtn);
+
+function openModalBtn(e) {
+  const btnRecipesList = 'recipe-card-button';
+  const id = e.target.name;
+  if (e.target.className === btnRecipesList) {
+    heardleRecipeById(id);
+  }
+}
+
 
 //константы
 let NUMB_PAGE_IN_MENU = 3;
