@@ -122,17 +122,6 @@ body.dark-theme {
   color: var(--main-color);
 }
 
-.favorite-heart-icon {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 16px;
-  height: 16px;
-}
-
-.add-to-favorite-checkbox:checked > .favorite-icon {
-  fill: #f8f8f8;
-}
 .category-btn.is-hidden,
 .fav-no-recipes-content.is-hidden {
   display: none;
@@ -156,6 +145,10 @@ body.dark-theme {
   max-width: 335px;
 
   text-align: center;
+}
+
+.favorite-icon {
+  fill: #f8f8f8;
 }
 
 @media screen and (min-width: 375px) {
