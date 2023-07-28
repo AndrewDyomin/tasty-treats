@@ -14,12 +14,10 @@ function createRecipesCards (data) {
         recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
-            `<li class="recipes-list-item">
-              <button type="button" class="add-to-favorites-btn">
+            `<li class="recipes-list-item">        
                 <svg class="favorite-icon">
                   <use href="${svg}#icon-heart"></use>
                 </svg>
-              </button>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
