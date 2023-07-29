@@ -52,7 +52,7 @@ function clearFilters() {
 function createRecipesTimeOptions () {
     try {
         for (let time = 5; time <= 120; time += 5) {
-            const markup = `<option value="${time}">${time} min</option>`;
+            const markup = `<option class="filter-option" value="${time}">${time} min</option>`;
             timeSelectorEl.insertAdjacentHTML("beforeend", markup);
           }
     } catch (err) {

@@ -48,6 +48,15 @@ body.dark-theme {
   color: var(--dark-theme-color-text);
 }
 
+.dark-theme .swiper-pagination-bullet {
+  background-color: var(--dark-theme-color-text) !important;
+}
+
+.hero-slider .swiper-pagination-bullet-active {
+  background-color: var(--btn-color) !important;
+}
+
+
 .dark-theme .modal-window {
   background-color: var(--main-color);
 }
@@ -63,6 +72,22 @@ body.dark-theme {
 .dark-theme .input {
   background-color: transparent;
   color: var(--dark-theme-color-text);
+}
+
+.dark-theme .input,
+.dark-theme .select,
+.dark-theme .search-icon,
+.dark-theme .filter-form-label,
+.dark-theme .filter-form-label-time,
+.dark-theme .filter-form-label-area,
+.dark-theme .filter-form-label-ingredients {
+  color: var(--dark-theme-color-label-text);
+  fill: var(--dark-theme-color-label-text);
+}
+
+.dark-theme .search-area,
+.dark-theme .select {
+  border-color: var(--dark-theme-color-label-text);
 }
 
 .dark-theme .comment {

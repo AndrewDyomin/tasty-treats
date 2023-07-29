@@ -139,16 +139,27 @@
 
 .favorite-icon {
   position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  stroke: #f8f8f8;
+  fill: transparent;
+  cursor: pointer;
+}
+
+.add-to-favorites-btn {
+  position: absolute;
   top: 16px;
   right: 16px;
   width: 22px;
   height: 22px;
-  stroke: #f8f8f8;
-  fill: none;
-  cursor: pointer;
+  background-color: inherit;
+  border: none;
 }
 
 .favorite-icon:is(:hover, :focus),
+.favorite-icon-active {
 .choseRecipe {
   fill: #f8f8f8;
 }

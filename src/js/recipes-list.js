@@ -28,7 +28,6 @@ function createRecipesCards (data) {
         for (const recipe of data.results) {
             const markup = 
               `<li class="recipes-list-item" id="${recipe._id}">
-                    
                 <svg class="favorite-icon">
                   <use id="iconUse" href="${svg}#icon-heart"></use>
                 </svg>
@@ -251,3 +250,20 @@ function updateSelectedPageNumber() {
     }
   }
 }
+
+// add to favorites
+
+async function addTofavorites (e) {
+  // const click = e.currentTarget;
+  // const addToFavoriteBtn = 'favorite-icon';
+  if (e.target.parentNode.classlist === 'favorite-icon') {
+    console.log(e.target);
+    localStorage.setItem("favorites", 'JSON.stringify(data)');
+  } else {
+    console.log('false');
+    console.log(e.target.parentNode, e.target.parentNode.className)
+    return;
+  }
+}
+
+recipesListEl.addEventListener('click', addTofavorites);
