@@ -15,11 +15,11 @@ function createRecipesCards (data) {
         for (const recipe of data.results) {
             const markup = 
             `<li class="recipes-list-item">
-              <button type="button" class="add-to-favorites-btn">
+              <div class="add-to-favorites-btn">
                 <svg class="favorite-icon">
                   <use href="${svg}#icon-heart"></use>
                 </svg>
-              </button>
+              </div>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
@@ -28,7 +28,13 @@ function createRecipesCards (data) {
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
-            console.log(recipe);
+            const addToFavoritesBtnEl = document.querySelector('.add-to-favorites-btn');
+
+            addToFavoritesBtnEl.addEventListener('click', () => {
+              localStorage.setItem("favorites", JSON.stringify(data));
+              console.log('click');
+            })
+            // console.log(recipe);
           }
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
@@ -240,3 +246,20 @@ function updateSelectedPageNumber() {
     }
   }
 }
+
+// add to favorites
+
+async function addTofavorites (e) {
+  // const click = e.currentTarget;
+  // const addToFavoriteBtn = 'favorite-icon';
+  if (e.target.parentNode.classlist === 'favorite-icon') {
+    console.log(e.target);
+    localStorage.setItem("favorites", 'JSON.stringify(data)');
+  } else {
+    console.log('false');
+    console.log(e.target.parentNode, e.target.parentNode.className)
+    return;
+  }
+}
+
+recipesListEl.addEventListener('click', addTofavorites);
