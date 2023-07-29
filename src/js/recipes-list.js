@@ -2,9 +2,22 @@ import { UnsplashAPI } from './api';
 import Notiflix from 'notiflix';
 import throttle from 'lodash.throttle'
 import svg from '../images/sprite.svg';
+import { heardleRecipeById } from './modal-recipe';
 
 const unsplashApi = new UnsplashAPI();
 const recipesListEl = document.querySelector('.resipes-list');
+
+//Open Modal
+recipesListEl.addEventListener('click', openModalBtn);
+
+function openModalBtn(e) {
+  const btnRecipesList = 'recipe-card-button';
+  const id = e.target.name;
+  if (e.target.className === btnRecipesList) {
+    heardleRecipeById(id);
+  }
+}
+
 
 //константы
 let NUMB_PAGE_IN_MENU = 3;
@@ -14,12 +27,10 @@ function createRecipesCards (data) {
         recipesListEl.innerHTML = '';
         for (const recipe of data.results) {
             const markup = 
-            `<li class="recipes-list-item">
-              <div class="add-to-favorites-btn">
+              `<li class="recipes-list-item" id="${recipe._id}">
                 <svg class="favorite-icon">
-                  <use href="${svg}#icon-heart"></use>
+                  <use id="iconUse" href="${svg}#icon-heart"></use>
                 </svg>
-              </div>
               <div class="recipe-card">
                 <img src="${recipe.preview}" alt="${recipe.description}" loading="lazy" />
                 <p class="recipe-card-title">${recipe.title}</p>
@@ -28,13 +39,6 @@ function createRecipesCards (data) {
               </div>
             </li>`;
             recipesListEl.insertAdjacentHTML("beforeend", markup);
-            const addToFavoritesBtnEl = document.querySelector('.add-to-favorites-btn');
-
-            addToFavoritesBtnEl.addEventListener('click', () => {
-              localStorage.setItem("favorites", JSON.stringify(data));
-              console.log('click');
-            })
-            // console.log(recipe);
           }
     } catch (err) {
         Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');

@@ -148,7 +148,7 @@
   border-radius: 15px;
   width: 133px;
   height: 41px;
-  padding: 12px 24px;
+  padding: 12px 23px;
 }
 
 .add-favorite-btn,
@@ -217,6 +217,6 @@
   .rating-btn {
     width: 141px;
     height: 45px;
-    padding: 14px 28px;
+    padding: 14px 26px;
   }
 }

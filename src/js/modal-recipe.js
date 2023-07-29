@@ -14,7 +14,7 @@ const refs = {
   backdrop: document.querySelector('js-backdrop'),
 };
 
-refs.openModalRecipeBtn.addEventListener('click', heardleRecipeById);
+
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.modal.addEventListener('click', handleBackdropClick);
 
@@ -26,17 +26,9 @@ function toggleModal() {
   window.removeEventListener('keydown', handleEscKeyPress);
 }
 
-async function heardleRecipeById(e) {
-  const click = e.target;
-  const btnRecipesList = 'recipe-card-button';
-  const btnFavorites = 'fav-recipe-card-button';
-  const id = click.name;
-  if (click.className !== btnRecipesList) {
-    return;
-  } else {
-    toggleModal();
-  }
-  showLoader();
+export async function heardleRecipeById(id) {
+  toggleModal();
+  // showLoader();
   window.addEventListener('keydown', handleEscKeyPress);
   try {
     unsplashApi.endpoint = `/recipes/${id}`;
@@ -46,9 +38,10 @@ async function heardleRecipeById(e) {
     } else {
       refs.recipeMarkup.innerHTML = markupMob(data);
     }
-    hideLoader();
   } catch {
     Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
+  } finally {
+    // hideLoader();
   }
 }
 
@@ -70,7 +63,7 @@ function markupMob(data) {
         class="modal-recipe-video"
         width="295"
         height="295"
-        src="${data.youtube}"
+        src="${data.youtube.replace('watch?v=', 'embed/')}"
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; 
@@ -110,7 +103,7 @@ function markupTab(data) {
         class="modal-recipe-video"
         width="295"
         height="295"
-        src="${data.youtube}"
+        src="${data.youtube.replace('watch?v=', 'embed/')}"
         title="YouTube video player" 
         frameborder="0" 
         allow="accelerometer; autoplay; 

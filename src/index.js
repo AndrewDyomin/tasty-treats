@@ -1,5 +1,6 @@
 import './js/hero'
 import './js/recipes-list'
+import './js/add_favorite_to-localstorage'
 import './js/popular-recipes'
 import './js/filter'
 import './js/scroll-to-top'
