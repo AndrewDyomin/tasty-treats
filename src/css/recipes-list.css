@@ -159,7 +159,7 @@
 }
 
 .favorite-icon:is(:hover, :focus),
-.favorite-icon-active {
+.favorite-icon-active,
 .choseRecipe {
   fill: #f8f8f8;
 }
