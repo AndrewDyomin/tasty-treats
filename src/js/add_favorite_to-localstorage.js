@@ -38,3 +38,13 @@ function addDataToLocalStorage() {
     }
 }
 
+// С Модального Окна
+const addToFavoriteBtn = document.querySelector('.add-favorite-btn')
+addToFavoriteBtn.addEventListener('click', heandleClickBtnAd )
+
+function heandleClickBtnAd(e){
+    data[e.target.name] = e.target.name;
+    localStorage.setItem(refs.LOCALSTORAGE_KEY, JSON.stringify(data));
+    addDataToLocalStorage() 
+}
+
