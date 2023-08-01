@@ -253,17 +253,17 @@ function updateSelectedPageNumber() {
 
 // add to favorites
 
-async function addTofavorites (e) {
-  // const click = e.currentTarget;
-  // const addToFavoriteBtn = 'favorite-icon';
-  if (e.target.parentNode.classlist === 'favorite-icon') {
-    console.log(e.target);
-    localStorage.setItem("favorites", 'JSON.stringify(data)');
-  } else {
-    console.log('false');
-    console.log(e.target.parentNode, e.target.parentNode.className)
-    return;
-  }
-}
+// async function addTofavorites (e) {
+//   // const click = e.currentTarget;
+//   // const addToFavoriteBtn = 'favorite-icon';
+//   if (e.target.parentNode.classlist === 'favorite-icon') {
+//     console.log(e.target);
+//     localStorage.setItem("favorites", 'JSON.stringify(data)');
+//   } else {
+//     console.log('false');
+//     console.log(e.target.parentNode, e.target.parentNode.className)
+//     return;
+//   }
+// }
 
-recipesListEl.addEventListener('click', addTofavorites);
+// recipesListEl.addEventListener('click', addTofavorites);

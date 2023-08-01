@@ -1,54 +1,55 @@
- 
-  const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
-  const categoriesContainer = document.getElementById('categories');
-  const overallButton = document.querySelector('.categorBt');
-  
-  function createCategoryList(categories) {
+import { createRecipesCards, reloadRecipesList } from './recipes-list';
+import { UnsplashAPI } from './api';
+import Notiflix from 'notiflix';
+import { forEach } from 'lodash';
+
+const unsplashApi = new UnsplashAPI();
+const categoriesContainerEl = document.getElementById('categories');
+const allCatBtnEl = document.querySelector('.categorBt');
+
+function createCategoriesList (data) {
+  try {
+    categoriesContainerEl.innerHTML = '';
     const categoryList = document.createElement('ul');
-    // categoryList.style.overflow = 'auto';
-    
-    categories.forEach(category => {
-      const listItem = document.createElement('li');
-      const button = document.createElement('button');
-      
-      button.textContent = category.name;
-      button.classList.add('category-button');
-      
-      button.addEventListener('click', () => {
-        button.classList.toggle('active');
-        
+      for (const category of data) {
+        const listItem = document.createElement('li');
+        const button = document.createElement('button');
+        button.textContent = category.name;
+        button.classList.add('category-button');
+        listItem.appendChild(button);
+        categoryList.appendChild(listItem);
+
+        button.addEventListener('click', async () => { 
+          button.classList.toggle('active');
+
         if (button.classList.contains('active')) {
-          console.log('Category activated:', category);
-          // Тут ви можете викликати функцію для подальшої обробки активації категорії
+          unsplashApi.endpoint = `/recipes?category=${button.textContent}`;
+          const { data } = await unsplashApi.fetchRecipes();
+          createRecipesCards(data);
         } else {
-          console.log('Category deactivated:', category);
-          // Тут ви можете викликати функцію для подальшої обробки деактивації категорії
+          unsplashApi.endpoint = `/recipes`;
+          const { data } = await unsplashApi.fetchRecipes();
+          createRecipesCards(data);
         }
       });
-      
-      listItem.appendChild(button);
-      categoryList.appendChild(listItem);
-    });
-    
-    return categoryList;
+
+      categoriesContainerEl.appendChild(categoryList);
+      }
+  } catch (err) {
+      Notiflix.Notify.warning('Sorry, something went wrong. Please try later.');
   }
-  // функція знімання фільтрів і категорій натисканням на загальну кнопку
-  function clearActiveStates() {
-    const categoryButtons = categoriesContainer.querySelectorAll('.category-button');
-    categoryButtons.forEach(button => {
-      button.classList.remove('active');
-    });
-   
-  }
-  
-  overallButton.addEventListener('click', clearActiveStates);
-  
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const categoryList = createCategoryList(data);
-      categoriesContainer.appendChild(categoryList);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+}
+
+async function fetchCategoriesList () {
+  unsplashApi.endpoint = '/categories';
+  const { data } = await unsplashApi.fetchRecipes();
+  createCategoriesList(data);
+}
+
+fetchCategoriesList();
+
+function allCatBtnClickHandler () {
+  reloadRecipesList();
+};
+
+allCatBtnEl.addEventListener('click', allCatBtnClickHandler);

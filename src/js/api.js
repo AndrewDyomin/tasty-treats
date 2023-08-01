@@ -4,8 +4,8 @@ export class UnsplashAPI {
 
 #BASE_URL = 'https://tasty-treats-backend.p.goit.global/api'
 endpoint = '';
-currentPage = 1;
-itemsPerPage = 9;
+currentPage = null;
+itemsPerPage = null;
 time = null;
 area = null;
 ingredient = null;
